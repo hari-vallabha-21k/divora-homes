@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="position:relative;width:100%;height:100%;overflow:hidden;background:#DCD4C5">
+<sc-if value="{{ isArch }}" hint-placeholder-val="{{ true }}">
+<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;display:block" fill="none" stroke="#243D32" stroke-width="1.4">
+<rect width="400" height="500" fill="#DCD4C5" stroke="none"></rect>
+<path d="M118 402V196a82 82 0 0 1 164 0v206z" fill="#F7F4EC"></path>
+<path d="M134 402V198a66 66 0 0 1 132 0v204"></path>
+<circle cx="200" cy="206" r="36" fill="#B49A6C" stroke="none"></circle>
+<path d="M326 0v118M304 150a22 22 0 0 1 44 0z" fill="#F7F4EC"></path>
+<path d="M0 402h400M0 416h400" stroke-width="1"></path>
+<path d="M62 402v-50a14 14 0 0 1 14-14h20v-34a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16v34h20a14 14 0 0 1 14 14v50z" fill="#243D32" stroke="none"></path>
+<path d="M96 338h208M200 290v48" stroke="#F7F4EC" stroke-width="1"></path>
+<path d="M84 402v14M316 402v14"></path>
+</svg>
+</sc-if>
+<sc-if value="{{ isBalcony }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;display:block" fill="none" stroke="#243D32" stroke-width="1.4">
+<rect width="400" height="500" fill="#F7F4EC" stroke="none"></rect>
+<rect x="84" y="64" width="232" height="338" fill="#DCD4C5"></rect>
+<circle cx="246" cy="168" r="42" fill="#B49A6C" stroke="none"></circle>
+<path d="M200 64v338M84 292h232M84 304h232"></path>
+<path d="M100 304v98M116 304v98M132 304v98M148 304v98M164 304v98M180 304v98M216 304v98M232 304v98M248 304v98M264 304v98M280 304v98M296 304v98" stroke-width="1"></path>
+<path d="M0 402h400"></path>
+<path d="M60 40v362M52 40h296" stroke-width="1"></path>
+<path d="M336 402v-40h36v40z" fill="#243D32" stroke="none"></path>
+<path d="M354 362c-26-30-22-66-4-92 20 28 26 60 4 92zM354 362c-30-8-44-30-44-56 26 8 42 28 44 56zM354 362c30-8 40-26 40-50-24 8-38 24-40 50z" fill="#243D32" stroke="#F7F4EC" stroke-width="1"></path>
+</svg>
+</sc-if>
+<sc-if value="{{ isWindow }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;display:block" fill="none" stroke="#F7F4EC" stroke-width="1.4">
+<rect width="400" height="500" fill="#243D32" stroke="none"></rect>
+<rect x="104" y="70" width="192" height="236" fill="#DCD4C5"></rect>
+<path d="M200 70v236M104 188h192" stroke="#243D32"></path>
+<path d="M92 306h216v12H92z" fill="#F7F4EC" stroke="none"></path>
+<path d="M0 420h400" stroke-width="1"></path>
+<path d="M48 372h304" stroke="#B49A6C" stroke-width="5"></path>
+<path d="M70 374v46M330 374v46"></path>
+<path d="M232 372v-22a16 16 0 0 1 32 0v22z" fill="#F7F4EC" stroke="none"></path>
+<path d="M248 334c-4-30 6-52 22-66M248 334c0-26-10-44-26-54M248 334c2-20-2-48 0-70" stroke-width="1"></path>
+<path d="M112 372v-10h60v10" stroke-width="1"></path>
+</svg>
+</sc-if>
+<sc-if value="{{ isDoor }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;display:block" fill="none" stroke="#243D32" stroke-width="1.4">
+<rect width="400" height="500" fill="#DCD4C5" stroke="none"></rect>
+<path d="M132 402V176a68 68 0 0 1 136 0v226z" fill="#F7F4EC"></path>
+<path d="M146 402V190h108v212z" fill="#243D32" stroke="none"></path>
+<path d="M146 176a54 54 0 0 1 108 0zM200 122v54M162 138l38 38M238 138l-38 38" stroke-width="1"></path>
+<circle cx="238" cy="300" r="5" fill="#B49A6C" stroke="none"></circle>
+<path d="M0 402h400"></path>
+<path d="M120 402h160v12H120z" fill="#B49A6C" stroke="none"></path>
+<path d="M302 402v-34h34v34z" fill="#F7F4EC"></path>
+<circle cx="319" cy="340" r="24" fill="#243D32" stroke="none"></circle>
+<path d="M70 150v60M58 150h24M70 210a12 12 0 0 0 0 24 12 12 0 0 0 0-24" stroke-width="1"></path>
+</svg>
+</sc-if>
+<sc-if value="{{ showCaption }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:10px;bottom:10px;background:#F7F4EC;color:#292923;font:500 8px/1 Inter,sans-serif;letter-spacing:.06em;padding:4px 6px;border-radius:4px;white-space:nowrap">Illustrative — photo to be supplied by Divora</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:400,&quot;height&quot;:500},&quot;scene&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;arch&quot;,&quot;balcony&quot;,&quot;window&quot;,&quot;door&quot;],&quot;default&quot;:&quot;arch&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;caption&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.props.scene ?? 'arch';
+    return { isArch: s === 'arch', isBalcony: s === 'balcony', isWindow: s === 'window', isDoor: s === 'door', showCaption: this.props.caption ?? true };
+  }
+}
+</script>
+</body>
+</html>

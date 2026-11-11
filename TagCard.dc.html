@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="width:300px;font-family:Inter,sans-serif;position:relative">
+<div style="position:relative;height:372px;border-radius:14px;overflow:hidden;background:#DCD4C5">
+<dc-import name="Vignette" scene="{{ scene }}" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+<div style="position:absolute;top:12px;left:50%;margin-left:-7px;width:14px;height:14px;border-radius:50%;background:{{ hole }};box-shadow:inset 0 0 0 1px #B49A6C"></div>
+<div style="position:absolute;top:14px;right:14px;background:#FFFFFF;color:#292923;font:500 10px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:14px;white-space:nowrap">{{ badge }}</div>
+</div>
+<div style="height:0;border-top:1.5px dashed #F7F4EC;margin:0 14px;opacity:.9"></div>
+<div style="border-radius:14px;padding:22px 22px 20px;background:{{ bg }};color:{{ ink }};min-height:176px;display:flex;flex-direction:column;box-sizing:border-box">
+<div style="font:italic 500 30px/1.05 'Cormorant Garamond',serif;text-wrap:balance">{{ title }}</div>
+<div style="display:flex;align-items:center;gap:7px;margin-top:10px;font-size:12px">
+<svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><path d="M5 0a5 5 0 0 0-5 5c0 3.6 5 8 5 8s5-4.4 5-8a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path></svg>
+<span>{{ place }}</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:22px;gap:14px">
+<div><div style="font:500 17px/1.1 'Cormorant Garamond',serif">{{ slotValue }}</div><div style="font:italic 400 11px/1.3 Inter,sans-serif;margin-top:3px">{{ slotLabel }}</div></div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;font-size:12px;font-weight:500;white-space:nowrap;flex:none"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 15 15 3M6 3h9v9"></path></svg><span>View Details</span></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:560},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;forest&quot;,&quot;gold&quot;,&quot;sand&quot;],&quot;default&quot;:&quot;forest&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;scene&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;arch&quot;,&quot;balcony&quot;,&quot;window&quot;,&quot;door&quot;],&quot;default&quot;:&quot;arch&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Our Cozy Nest&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;place&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hyderabad&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1 bed · 2 guests&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;slotValue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1 bed · 1 bath&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;slotLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Configuration&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;hole&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#243D32&quot;,&quot;options&quot;:[&quot;#243D32&quot;,&quot;#F7F4EC&quot;,&quot;#DCD4C5&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props, v = p.variant ?? 'forest';
+    const c = { forest: ['#243D32', '#F7F4EC'], gold: ['#B49A6C', '#292923'], sand: ['#DCD4C5', '#292923'] }[v] || ['#243D32', '#F7F4EC'];
+    return { bg: c[0], ink: c[1], hole: p.hole ?? '#243D32', scene: p.scene ?? 'arch', title: p.title ?? 'Our Cozy Nest', place: p.place ?? 'Hyderabad', badge: p.badge ?? '1 bed · 2 guests', slotValue: p.slotValue ?? '1 bed · 1 bath', slotLabel: p.slotLabel ?? 'Configuration' };
+  }
+}
+</script>
+</body>
+</html>

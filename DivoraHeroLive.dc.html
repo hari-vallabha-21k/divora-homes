@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="_ds/design-system-bcffba03-aef4-454b-9230-118735ba2ae4/_ds_bundle.js"></script>
+<style>html,body{margin:0;background:#F7F4EC}a{color:#243D32}a:hover{color:#292923}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="container-type:inline-size;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif">
+<section data-dv="hero" style="position:relative;height:{{ heroH }}">
+<div onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" style="position:sticky;top:0;height:100vh;min-height:640px;overflow:hidden">
+
+<div data-l="1" style="position:absolute;left:3.3cqw;top:{{ L.l1top }};font:300 {{ L.h }}/.86 'Cormorant Garamond',serif;text-transform:uppercase;white-space:nowrap;z-index:1;will-change:transform,opacity"><sc-for list="{{ w1 }}" as="w" hint-placeholder-count="3"><span style="display:inline-block;overflow:hidden;vertical-align:top;margin-right:.22em;padding-top:.06em"><span data-word="1" style="display:inline-block">{{ w }}</span></span></sc-for></div>
+<div data-l="2" style="position:absolute;right:3.3cqw;top:{{ L.l2top }};font:300 {{ L.h2 }}/.86 'Cormorant Garamond',serif;text-transform:uppercase;white-space:nowrap;z-index:{{ L.l2z }};will-change:transform,opacity"><sc-for list="{{ w2 }}" as="w" hint-placeholder-count="3"><span style="display:inline-block;overflow:hidden;vertical-align:top;margin-left:.22em;padding-top:.06em"><span data-word="1" style="display:inline-block">{{ w }}</span></span></sc-for></div>
+
+<div ref="{{ canvasRef }}" style="position:absolute;inset:0;z-index:2;pointer-events:none"></div>
+
+<div style="position:absolute;left:0;right:0;top:0;height:96px;z-index:4;display:grid;grid-template-columns:{{ L.navCols }};align-items:center;padding:0 3.3cqw">
+<div data-logo="1" style="font:400 24px/1 'Cormorant Garamond',serif;letter-spacing:.34em;text-transform:uppercase">Divora</div>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}"><nav style="display:flex;gap:40px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase"><a href="#" onClick="{{ navStays }}" style="color:#292923;text-decoration:none;padding:8px 0">Stays</a><a href="#" onClick="{{ navExperience }}" style="color:#292923;text-decoration:none;padding:8px 0">Experience</a><a href="#" onClick="{{ navOwners }}" style="color:#292923;text-decoration:none;padding:8px 0">Owners</a><a href="#" onClick="{{ navContact }}" style="color:#292923;text-decoration:none;padding:8px 0">Contact</a></nav></sc-if>
+<div style="display:flex;justify-content:flex-end"><a href="#" onClick="{{ navEnquire }}" style="width:72px;height:72px;border-radius:50%;background:#243D32;color:#F7F4EC;text-decoration:none;display:flex;align-items:center;justify-content:center;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Enquire</a></div>
+</div>
+<div style="position:absolute;left:3.3cqw;right:3.3cqw;top:96px;height:1px;background:#B49A6C;z-index:4"></div>
+
+<div data-ui="1" style="position:absolute;right:3.3cqw;top:136px;z-index:4;display:{{ L.factsDisp }};flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase">
+<span style="white-space:nowrap">Hyderabad</span><span style="width:28px;height:1px;background:#B49A6C;display:block"></span><span style="white-space:nowrap">Kondapur – HITEC City</span><span style="width:28px;height:1px;background:#B49A6C;display:block"></span><span style="white-space:nowrap">Founded by Divya</span>
+</div>
+<div data-ui="1" style="position:absolute;left:3.3cqw;top:{{ L.introTop }};width:{{ L.introW }};z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
+<span style="border:1px solid #292923;border-radius:999px;padding:8px 13px;font:500 9px/1.3 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">Furnished homestays · Hyderabad</span>
+<p style="margin:0;font:400 14px/1.6 Inter,sans-serif;text-wrap:pretty">Thoughtfully furnished spaces for slow mornings, work trips and everything in between.</p>
+<a href="#" onClick="{{ goNext }}" style="display:flex;align-items:center;gap:10px;background:#292923;color:#F7F4EC;text-decoration:none;font:500 12px/1 Inter,sans-serif;padding:15px 20px;border-radius:14px;white-space:nowrap;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#243D32">Explore Our Stays <span>↗</span></a>
+</div>
+<div data-ui="1" style="position:absolute;right:{{ L.tagR }};top:{{ L.tagTop }};z-index:4;display:flex;align-items:center;gap:8px;font:500 9px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#243D32;display:block"></span>Illustrative concept</div>
+<div data-ui="1" style="position:absolute;left:3.3cqw;bottom:36px;z-index:4;display:flex;align-items:center;gap:14px;font:500 10px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase"><span style="white-space:nowrap">Scroll to Discover</span><span style="width:72px;height:1px;background:#B49A6C;display:block"></span></div>
+<div data-ui="1" style="position:absolute;right:3.3cqw;bottom:36px;z-index:4;font:400 10px/1.4 Inter,sans-serif;white-space:nowrap">“apartment floor plan” by SrMonteiro, CC BY 4.0</div>
+<sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;font:500 10px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase">Loading model…</div></sc-if>
+</div>
+</section>
+<sc-if value="{{ showNext }}" hint-placeholder-val="{{ false }}">
+<section data-dv="next" style="position:relative;z-index:5;margin-top:-60vh;padding:14vh 3.3cqw 30vh;background:#F7F4EC;border-top:1px solid #B49A6C">
+<div style="font:300 {{ L.next }}/.98 'Cormorant Garamond',serif;text-transform:uppercase">More than a stay.<br><span style="padding-left:2.4em;color:#243D32">A space to feel at home.</span></div>
+</section>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;reducedMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;embedded&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;onNav&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(key: string) =&gt; void&quot;}}">
+class Component extends DCLogic {
+  state = { loading: true, w: 1440 };
+  rootRef = React.createRef();
+  canvasRef = React.createRef();
+  componentDidMount() {
+    this.reduced = !!this.props.reducedMotion || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.onScroll = () => { if (!this.sraf) this.sraf = requestAnimationFrame(() => { this.sraf = 0; this.update(); }); };
+    this.onResize = () => { const w = this.rootRef.current ? this.rootRef.current.offsetWidth : 1440; if (w !== this.state.w) this.setState({ w }); this.onScroll(); };
+    document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+    this.prepIntro();
+    import(new URL('divora-hero-live.js', document.baseURI).href).then(m => m.mountHero(this.canvasRef.current, { reduced: this.reduced,
+      region: (W, H) => W < 768 ? { left: 0, right: W, cy: H * 0.46 } : { left: Math.max(W * 0.033 + 236 + 32, W * 0.2), right: W * 0.967, cy: H * 0.55 },
+      onLayout: b => this.setState({ box: b }) })).then(h => {
+      this.hero = h; window.__divoraHero = h; this.setState({ loading: false }); this.update();
+      this.playIntro();
+    }).catch(e => { console.warn('hero failed', e); this.setState({ loading: false }); this.playIntro(); });
+  }
+  componentWillUnmount() { document.removeEventListener('scroll', this.onScroll, { capture: true }); window.removeEventListener('resize', this.onResize); this.hero && this.hero.destroy(); }
+  q(s) { return this.rootRef.current ? [...this.rootRef.current.querySelectorAll(s)] : []; }
+  prepIntro() {
+    if (this.reduced) return;
+    this.q('[data-logo]').forEach(e => { e.style.opacity = 0; });
+    this.q('[data-word]').forEach(e => { e.style.transform = 'translateY(105%)'; });
+    this.q('[data-ui]').forEach(e => { e.style.opacity = 0; });
+  }
+  playIntro() {
+    const ezs = 'cubic-bezier(.22,1,.36,1)';
+    if (this.reduced) { this.hero && this.hero.entry(0); return; }
+    const words = this.q('[data-word]');
+    void (this.rootRef.current && this.rootRef.current.offsetWidth);
+    this.q('[data-logo]').forEach(e => { e.style.transition = 'opacity .9s ' + ezs; e.style.opacity = 1; });
+    words.forEach((w, i) => { w.style.transition = 'transform 1s ' + ezs + ' ' + (0.3 + i * 0.08) + 's'; w.style.transform = 'none'; });
+    const after = 300 + words.length * 80;
+    this.hero && this.hero.entry(after);
+    this.q('[data-ui]').forEach((e, i) => { e.style.transition = 'opacity .9s ' + ezs + ' ' + ((after + 500) / 1000 + i * 0.06) + 's'; e.style.opacity = 1; });
+  }
+  update() {
+    const root = this.rootRef.current; if (!root) return;
+    const hero = root.querySelector('[data-dv="hero"]'), r = hero.getBoundingClientRect(), vh = window.innerHeight;
+    const p = this.reduced ? 0 : Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - (this.props.embedded ? 2 : 1) * vh)));
+    this.hero && this.hero.setProgress(p);
+    const a = 1 - Math.pow(1 - Math.min(1, p / 0.4), 3), vw = root.offsetWidth / 100;
+    const dx = (a * 6 + Math.max(0, p - 0.4) * 6) * vw;
+    const fade = Math.max(0, 1 - Math.max(0, p - 0.45) / 0.25);
+    const l = root.querySelectorAll('[data-l]');
+    if (l[0]) { l[0].style.transform = 'translateX(' + (-dx).toFixed(1) + 'px)'; l[0].style.opacity = fade; }
+    if (l[1]) { l[1].style.transform = 'translateX(' + dx.toFixed(1) + 'px)'; l[1].style.opacity = fade; }
+    if (this.introDone || p > 0.02) { this.introDone = true; this.q('[data-ui]').forEach(e => { e.style.transition = 'opacity .4s'; e.style.opacity = Math.max(0, 1 - p / 0.3); }); }
+  }
+  nav(k, e) {
+    if (e) e.preventDefault();
+    if (this.props.onNav) return this.props.onNav(k);
+    const n = this.rootRef.current.querySelector('[data-dv="next"]'); if (n) window.scrollTo({ top: n.getBoundingClientRect().top + window.scrollY, behavior: this.reduced ? 'auto' : 'smooth' });
+  }
+  renderVals() {
+    const m = this.state.w < 768, b = this.state.box;
+    const fs = b ? (m ? b.W * 0.15 : Math.min(b.W * 0.0945, b.H * 0.155)) : 0, fs2 = b ? (m ? b.W * 0.116 : Math.min(b.W * 0.086, b.H * 0.14)) : 0;
+    const l1top = b ? Math.max(112, b.top - fs * 0.92 * 0.85) + 'px' : 'calc(96px + 4vh)';
+    const introTop = b ? (Math.max(112, b.top - fs * 0.92 * 0.85) + fs * 0.95 + 24) + 'px' : '40vh';
+    const l2want = b ? b.bottom - fs2 * 0.92 * 0.15 : 0, l2max = b ? b.H - fs2 * 0.9 - 64 : 0;
+    const l2top = b ? Math.min(l2want, l2max) + 'px' : (m ? '62vh' : '68vh'), l2z = b && l2want > l2max + fs2 * 0.1 ? 3 : 1;
+    return {
+      rootRef: this.rootRef, canvasRef: this.canvasRef, loading: this.state.loading, desk: !m,
+      w1: ['A', 'Stay', 'That'], w2: ['Feels', 'Like', 'Yours.'],
+      L: {
+        h: m ? '15cqw' : 'min(9.45cqw,15.5vh)', h2: m ? '11.6cqw' : 'min(8.6cqw,14vh)', l2top, l1top, l2z, navCols: m ? '1fr auto' : '1fr auto 1fr',
+        factsDisp: m ? 'none' : 'flex', introTop: m ? 'auto' : introTop, introW: m ? '80cqw' : '236px',
+        tagR: '3.3cqw', tagTop: b ? (Math.min(l2want, l2max) - 24) + 'px' : 'calc(68vh - 24px)', next: m ? '10cqw' : '5.3cqw',
+      },
+      onMove: e => { if (!this.hero || this.reduced) return; const b = e.currentTarget.getBoundingClientRect(); this.hero.setPointer(((e.clientX - b.left) / b.width - 0.5) * 2, ((e.clientY - b.top) / b.height - 0.5) * 2); },
+      onLeave: () => this.hero && this.hero.setPointer(0, 0),
+      goNext: e => this.nav('stays', e), showNext: !this.props.embedded, heroH: this.props.embedded ? '380vh' : '240vh',
+      navStays: e => this.nav('stays', e), navExperience: e => this.nav('experience', e), navOwners: e => this.nav('owners', e), navContact: e => this.nav('contact', e), navEnquire: e => this.nav('enquire', e),
+    };
+  }
+}
+</script>
+</body>
+</html>

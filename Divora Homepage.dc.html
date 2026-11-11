@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="_ds/design-system-bcffba03-aef4-454b-9230-118735ba2ae4/_ds_bundle.js"></script>
+<style>html{background:#DCD4C5}body{margin:0;background:#DCD4C5}a{color:#243D32}a:hover{color:#292923}input::placeholder,textarea::placeholder{color:currentColor;opacity:.55}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="container-type:inline-size;width:{{ L.rootW }};margin:0 auto;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif;overflow-x:clip">
+
+<div style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px;position:relative;z-index:5">
+<a href="#" onClick="{{ goTop }}" style="font:500 26px/1 'Cormorant Garamond',serif;letter-spacing:.04em;color:#292923;text-decoration:none">Divora</a>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;gap:18px;align-items:center;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">
+<a href="#" onClick="{{ goStays }}" style="color:#292923;text-decoration:none;padding:8px 0" style-hover="color:#243D32">Stays</a><span style="color:#B49A6C;font-size:14px">+</span>
+<a href="#" onClick="{{ goExperience }}" style="color:#292923;text-decoration:none;padding:8px 0" style-hover="color:#243D32">Experience</a><span style="color:#B49A6C;font-size:14px">+</span>
+<a href="#" onClick="{{ goOwners }}" style="color:#292923;text-decoration:none;padding:8px 0" style-hover="color:#243D32">Owners</a><span style="color:#B49A6C;font-size:14px">+</span>
+<a href="#" onClick="{{ goContact }}" style="color:#292923;text-decoration:none;padding:8px 0" style-hover="color:#243D32">Contact</a>
+</div>
+</sc-if>
+<div style="display:flex;gap:8px;align-items:center">
+<a href="#" onClick="{{ goEnquire }}" style="border:1px solid #292923;color:#292923;text-decoration:none;font:500 12px/1 Inter,sans-serif;padding:14px 18px;border-radius:14px;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923;color:#F7F4EC">Enquire</a>
+<a href="#" onClick="{{ goStays }}" aria-label="Explore stays" style="width:44px;height:44px;border-radius:50%;background:#292923;color:#F7F4EC;display:flex;align-items:center;justify-content:center;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#243D32"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15 15 3M6 3h9v9"></path></svg></a>
+</div>
+</div>
+
+<section data-dv="hero" data-screen-label="S1 Hero" style="position:relative;padding:0 24px 24px">
+<div data-dv="l1" style="overflow:hidden;margin-left:{{ L.l1ml }};padding-top:.5cqw;font:300 clamp(104px,19.5cqw,300px)/.82 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.02em;will-change:transform"><span data-dv="l1i" style="display:block">Div</span></div>
+<div data-dv="l2" style="overflow:hidden;margin-left:40cqw;padding-top:.5cqw;font:300 clamp(104px,19.5cqw,300px)/.82 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;will-change:transform"><span data-dv="l2i" style="display:block">ora</span></div>
+<div style="position:relative;z-index:2;margin-top:-6.5cqw;height:{{ L.frameH }}">
+<div data-dv="framebg" style="position:absolute;inset:0;background:#DCD4C5;border-radius:14px"></div>
+<div style="position:absolute;inset:0;clip-path:inset(-40cqw 0 0 0)"><img data-dv="render" data-img="hero" alt="Illustrative clay-model cutaway of a furnished apartment" style="position:absolute;left:50%;top:{{ L.renderTop }};width:{{ L.renderW }};transform:translateX(-50%);opacity:{{ rOp }};transition:opacity 1.2s cubic-bezier(.22,1,.36,1);will-change:transform"></div>
+<div style="position:absolute;top:16px;left:16px;background:#292923;color:#F7F4EC;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Illustrative concept</div>
+<div style="position:absolute;left:20px;right:20px;bottom:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+<h1 style="margin:0;font:300 clamp(30px,3.3cqw,48px)/1 'Cormorant Garamond',serif;text-transform:uppercase;max-width:8.5em;text-wrap:balance">A stay that feels like yours.</h1>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px">
+<a href="#" onClick="{{ goStays }}" style="background:#243D32;color:#F7F4EC;text-decoration:none;font:500 13px/1 Inter,sans-serif;padding:17px 22px;border-radius:14px;display:flex;gap:10px;align-items:center;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Explore Our Stays <span>↗</span></a>
+<div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:8px;align-items:center">Scroll to Discover <span style="color:#B49A6C;font-size:16px">↓</span></div>
+</div>
+</div>
+</div>
+<div style="position:{{ L.pos }};left:24px;top:1.2cqw;width:{{ L.leftW }};margin-top:{{ L.mt }};z-index:3">
+<span style="display:inline-block;border:1px solid #292923;font:500 10px/1.5 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:14px">Furnished homestays · Hyderabad</span>
+<p style="margin:14px 0 0;font:500 11px/1.6 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;max-width:300px">Thoughtfully furnished spaces for slow mornings, work trips and everything in between.</p>
+</div>
+<div style="position:{{ L.pos }};right:24px;top:1.2cqw;margin-top:{{ L.mt }};display:flex;flex-direction:{{ L.factsDir }};gap:18px 28px;flex-wrap:wrap;text-align:{{ L.factsAlign }}">
+<div><div style="font:300 clamp(20px,1.9cqw,28px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Hyderabad</div><div style="font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:7px">City</div></div>
+<div><div style="font:300 clamp(20px,1.9cqw,28px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Kondapur – HITEC City</div><div style="font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:7px">Neighbourhoods</div></div>
+<div><div style="font:300 clamp(20px,1.9cqw,28px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Founded by Divya</div><div style="font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:7px">Founder</div></div>
+</div>
+</section>
+
+<section data-dv="statement" data-screen-label="S2 Statement" style="padding:clamp(88px,11cqw,170px) 24px;font:300 clamp(30px,4.7cqw,70px)/1.08 'Cormorant Garamond',serif;text-transform:uppercase">
+<sc-for list="{{ lines }}" as="line" hint-placeholder-count="5">
+<div style="padding-left:{{ line.indent }}"><sc-for list="{{ line.words }}" as="w" hint-placeholder-count="4"><span data-w="{{ w.tone }}" style="display:inline-block;margin-right:.26em;color:#DCD4C5;transition:color .6s cubic-bezier(.22,1,.36,1)">{{ w.t }}</span></sc-for></div>
+</sc-for>
+</section>
+
+<section data-dv="bento" data-screen-label="S3 Experience" style="padding:0 24px clamp(88px,10cqw,150px)">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px;border-top:1px solid #B49A6C;padding-top:24px">
+<h2 style="margin:0;font:300 clamp(36px,4.6cqw,66px)/1 'Cormorant Garamond',serif;text-transform:uppercase">The Divora<br><span style="padding-left:1.4em">experience</span></h2>
+<p style="margin:0;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;max-width:250px">Find your place in the city. Details shown are those listed on Divora stays.</p>
+</div>
+<div style="display:grid;grid-template-columns:{{ L.cols2 }};gap:8px">
+<div style="display:flex;flex-direction:column;gap:8px" onMouseLeave="{{ rowLeave }}">
+<sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+<div onMouseEnter="{{ row.enter }}" onClick="{{ row.enter }}" style="background:{{ row.bg }};color:{{ row.ink }};border-radius:14px;padding:22px 24px;min-height:clamp(132px,11cqw,160px);box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:18px;cursor:pointer;transition:background .9s cubic-bezier(.22,1,.36,1),color .9s cubic-bezier(.22,1,.36,1)">
+<div style="font:300 clamp(26px,2.5cqw,36px)/1 'Cormorant Garamond',serif;text-transform:uppercase;text-align:right;max-width:9em;margin-left:auto;text-wrap:balance">{{ row.title }}</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px"><div style="font:500 10px/1.5 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;max-width:250px">{{ row.cap }}</div><svg width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#B49A6C" stroke-width="1.3" style="flex:none;transform:{{ row.arrow }};transition:transform .6s cubic-bezier(.22,1,.36,1)"><path d="M3 15 15 3M6 3h9v9"></path></svg></div>
+</div>
+</sc-for>
+</div>
+<div data-dv="bimg" style="position:relative;border-radius:14px;overflow:hidden;background:#DCD4C5;min-height:{{ L.bentoImgH }};filter:grayscale(1)">
+<img data-img="tall" alt="Illustrative apartment cutaway seen from above" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ rOp }};transition:opacity 1.2s cubic-bezier(.22,1,.36,1),transform 1.2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+<div style="position:absolute;top:16px;left:16px;background:#292923;color:#F7F4EC;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Illustrative concept</div>
+</div>
+</div>
+</section>
+
+<section data-dv="stays" data-screen-label="S4 Stays" style="position:relative;height:{{ L.s4H }};background:#243D32;color:#F7F4EC">
+<div style="position:{{ L.s4Pos }};top:0;height:{{ L.s4InnerH }};overflow:hidden">
+<div data-dv="foliage" style="position:absolute;left:0;right:0;top:-30%;height:160%;filter:blur(22px);pointer-events:none;will-change:transform">
+<div style="position:absolute;left:-6%;top:6%;width:52%;height:34%;background:rgba(247,244,236,.07);border-radius:100% 0 100% 0;transform:rotate(-24deg)"></div>
+<div style="position:absolute;right:-10%;top:18%;width:58%;height:30%;background:rgba(41,41,35,.34);border-radius:0 100% 0 100%;transform:rotate(18deg)"></div>
+<div style="position:absolute;left:18%;top:46%;width:60%;height:30%;background:rgba(247,244,236,.05);border-radius:100% 0 100% 0;transform:rotate(12deg)"></div>
+<div style="position:absolute;left:-12%;top:64%;width:50%;height:28%;background:rgba(41,41,35,.3);border-radius:0 100% 0 100%;transform:rotate(-30deg)"></div>
+<div style="position:absolute;right:-4%;top:70%;width:44%;height:26%;background:rgba(180,154,108,.1);border-radius:100% 0 100% 0;transform:rotate(-14deg)"></div>
+</div>
+<div style="position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;padding:28px 24px 0">
+<h2 style="margin:0;font:300 clamp(34px,3.7cqw,54px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Find your kind of stay.</h2>
+<sc-if value="{{ pinned }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;gap:22px;align-items:center;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding-top:14px">
+<span data-stop="0" style="display:flex;gap:8px;align-items:center;transition:opacity .6s"><i style="width:22px;height:1px;background:#B49A6C;display:block"></i>01 Start</span>
+<span data-stop="1" style="display:flex;gap:8px;align-items:center;transition:opacity .6s"><i style="width:22px;height:1px;background:#B49A6C;display:block"></i>02 Mid</span>
+<span data-stop="2" style="display:flex;gap:8px;align-items:center;transition:opacity .6s"><i style="width:22px;height:1px;background:#B49A6C;display:block"></i>03 End</span>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ pinned }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0;z-index:2">
+<sc-for list="{{ stays }}" as="s" hint-placeholder-count="3">
+<div data-card="1" style="position:absolute;left:50%;top:130px;width:300px;transform-origin:50% -130px;transform:translateX(-50%);will-change:transform">
+<dc-import name="TagCard" variant="{{ s.variant }}" scene="{{ s.scene }}" title="{{ s.title }}" place="{{ s.place }}" badge="{{ s.badge }}" slot-value="{{ s.slotValue }}" slot-label="{{ s.slotLabel }}" hint-size="300px,560px"></dc-import>
+<div style="position:absolute;left:50%;top:-130px;width:1px;height:148px;background:#B49A6C;pointer-events:none"></div>
+</div>
+</sc-for>
+</div>
+<div style="position:absolute;left:24px;bottom:22px;z-index:3;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;max-width:230px">Scroll travels the cards sideways. Availability to be confirmed on enquiry.</div>
+</sc-if>
+<sc-if value="{{ unpinned }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;z-index:2;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:44px 24px 20px;-webkit-overflow-scrolling:touch;justify-content:{{ L.rowJustify }}">
+<sc-for list="{{ stays }}" as="s" hint-placeholder-count="3">
+<div style="flex:none;scroll-snap-align:center"><dc-import name="TagCard" variant="{{ s.variant }}" scene="{{ s.scene }}" title="{{ s.title }}" place="{{ s.place }}" badge="{{ s.badge }}" slot-value="{{ s.slotValue }}" slot-label="{{ s.slotLabel }}" hint-size="300px,560px"></dc-import></div>
+</sc-for>
+</div>
+<div style="position:relative;z-index:2;padding:0 24px 44px;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Swipe to browse · Availability to be confirmed on enquiry</div>
+</sc-if>
+</div>
+</section>
+
+<section data-dv="inside" data-screen-label="S5 Step inside" style="padding:clamp(88px,10cqw,150px) 24px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+<h2 style="margin:0;font:300 clamp(36px,4.6cqw,66px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Step inside<br><span style="padding-left:1.4em">before you arrive.</span></h2>
+<p style="margin:0;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;max-width:250px">Select a marker to open a room.</p>
+</div>
+<div style="background:#DCD4C5;border-radius:14px;padding:16px;display:grid;grid-template-columns:{{ L.s5cols }};gap:16px;align-items:start">
+<div style="position:relative;aspect-ratio:1800/1150">
+<img data-img="hero" alt="Illustrative apartment cutaway with room markers" style="position:absolute;inset:0;width:100%;height:100%;opacity:{{ rOp }};transition:opacity 1.2s cubic-bezier(.22,1,.36,1)">
+<sc-for list="{{ hotspots }}" as="h" hint-placeholder-count="3">
+<button onClick="{{ h.open }}" aria-label="{{ h.label }}" style="position:absolute;left:{{ h.x }};top:{{ h.y }};transform:translate(-50%,-50%);border:0;background:none;padding:8px;cursor:pointer;font-family:Inter,sans-serif">
+<sc-if value="{{ h.active }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;background:#243D32;color:#F7F4EC;border-radius:14px;padding:6px 12px 6px 6px;font:500 11px/1 Inter,sans-serif;white-space:nowrap"><i style="width:16px;height:16px;border-radius:50%;background:#B49A6C;display:block"></i>{{ h.label }}</span></sc-if>
+<sc-if value="{{ h.idle }}" hint-placeholder-val="{{ true }}"><span style="width:28px;height:28px;border-radius:50%;border:1px solid #243D32;background:#F7F4EC;display:flex;align-items:center;justify-content:center;transition:transform .6s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.15)"><i style="width:8px;height:8px;border-radius:50%;background:#243D32;display:block"></i></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="background:#FFFFFF;border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;gap:16px;min-height:300px;box-sizing:border-box">
+<div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Room panel</div>
+<div style="font:italic 500 36px/1 'Cormorant Garamond',serif">{{ room.title }}</div>
+<p style="margin:0;font-size:14px;line-height:1.6">{{ room.body }}</p>
+<div style="display:flex;flex-direction:column;border-top:1px solid #B49A6C">
+<sc-for list="{{ room.list }}" as="it" hint-placeholder-count="3"><div style="padding:11px 0;border-bottom:1px solid #DCD4C5;font-size:13px;display:flex;justify-content:space-between"><span>{{ it }}</span><span style="color:#B49A6C;font-size:16px;line-height:1">+</span></div></sc-for>
+</div>
+<a href="#" onClick="{{ goEnquire }}" style="margin-top:auto;align-self:flex-start;background:#243D32;color:#F7F4EC;text-decoration:none;font:500 13px/1 Inter,sans-serif;padding:16px 20px;border-radius:14px;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Send enquiry</a>
+</div>
+</div>
+<div style="margin-top:14px;font:500 10px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Illustrative concept — not a specific Divora property</div>
+</section>
+
+<section data-screen-label="S6 Reviews" style="padding:0 24px clamp(88px,10cqw,150px)">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px;border-top:1px solid #B49A6C;padding-top:24px">
+<h2 style="margin:0;font:300 clamp(36px,4.6cqw,66px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Guest reviews</h2>
+<span style="border:1px dashed #292923;font:500 9px/1.4 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Illustrative layout — verified reviews to be added</span>
+</div>
+<div style="display:grid;grid-template-columns:{{ L.cols3 }};gap:8px">
+<div style="border:1px dashed #B49A6C;border-radius:14px;padding:26px 24px;min-height:250px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px"><div style="height:12px;width:92%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:100%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:64%;background:#DCD4C5;border-radius:4px"></div><div style="margin-top:auto;display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:50%;background:#DCD4C5"></div><div style="font:500 10px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Guest name<br>Stay name</div></div></div>
+<div style="border:1px dashed #B49A6C;border-radius:14px;padding:26px 24px;min-height:250px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;margin-top:{{ L.revOffset }}"><div style="height:12px;width:100%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:80%;background:#DCD4C5;border-radius:4px"></div><div style="margin-top:auto;display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:50%;background:#DCD4C5"></div><div style="font:500 10px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Guest name<br>Stay name</div></div></div>
+<div style="border:1px dashed #B49A6C;border-radius:14px;padding:26px 24px;min-height:250px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px"><div style="height:12px;width:88%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:96%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:100%;background:#DCD4C5;border-radius:4px"></div><div style="height:12px;width:40%;background:#DCD4C5;border-radius:4px"></div><div style="margin-top:auto;display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:50%;background:#DCD4C5"></div><div style="font:500 10px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Guest name<br>Stay name</div></div></div>
+</div>
+</section>
+
+<section data-dv="owners" data-screen-label="S7 Owners" style="padding:0 24px">
+<div style="position:relative;background:#243D32;color:#F7F4EC;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:{{ L.cols2 }}">
+<div style="position:relative;min-height:{{ L.ownerImgH }};order:{{ L.ownerImgOrder }}">
+<img data-img="living" alt="Illustrative living room cutaway" style="position:absolute;left:-8%;bottom:-6%;width:112%;opacity:{{ rOp }};transition:opacity 1.2s cubic-bezier(.22,1,.36,1)">
+<div style="position:absolute;top:20px;left:20px;background:#F7F4EC;color:#292923;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Illustrative concept</div>
+</div>
+<div style="padding:clamp(28px,4cqw,56px);display:flex;flex-direction:column;align-items:flex-end;gap:22px">
+<h2 style="margin:0;font:300 clamp(40px,5.2cqw,76px)/.98 'Cormorant Garamond',serif;text-transform:uppercase;text-align:right">Your property.<br>Our expertise.<br>Shared growth.</h2>
+<span style="border:1px dashed #F7F4EC;font:500 9px/1.4 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Subject to founder confirmation</span>
+<a href="#" onClick="{{ setOwner }}" style="border:1px solid #F7F4EC;color:#F7F4EC;text-decoration:none;font:500 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;border-radius:999px;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#F7F4EC;color:#243D32">Partner With Divora ↗</a>
+<form data-dv="form" onSubmit="{{ submit }}" noValidate style="width:100%;max-width:520px;margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 20px;border-top:1px solid #B49A6C;padding-top:22px">
+<div style="grid-column:span 2;display:flex;gap:20px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">
+<a href="#" onClick="{{ setOwner }}" style="color:#F7F4EC;text-decoration:none;padding:6px 0;border-bottom:{{ tab.owner }}">I own a property</a>
+<a href="#" onClick="{{ setGuest }}" style="color:#F7F4EC;text-decoration:none;padding:6px 0;border-bottom:{{ tab.guest }}">I'd like to stay</a>
+</div>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Name<input name="name" onInput="{{ onField }}" placeholder="Your name" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"><span style="text-transform:none;letter-spacing:0;font:400 12px/1.3 Inter,sans-serif;min-height:16px">{{ err.name }}</span></label>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Email or phone<input name="contact" onInput="{{ onField }}" placeholder="How we reach you" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"><span style="text-transform:none;letter-spacing:0;font:400 12px/1.3 Inter,sans-serif;min-height:16px">{{ err.contact }}</span></label>
+<sc-if value="{{ isOwner }}" hint-placeholder-val="{{ true }}">
+<label style="grid-column:span 2;min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Property area and configuration<input name="details" onInput="{{ onField }}" placeholder="e.g. Kondapur, 1 BHK" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"></label>
+</sc-if>
+<sc-if value="{{ isGuest }}" hint-placeholder-val="{{ false }}">
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Stay<select name="stay" onInput="{{ onField }}" style="font:400 15px/1.2 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:#243D32;padding:9px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box"><option>Any stay</option><option>Our Cozy Nest</option><option>Homey 1BHK with Scenic Balcony</option><option>Simple Like Home 1BHK Apartment</option></select></label>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Preferred dates<input name="details" onInput="{{ onField }}" placeholder="Dates or a rough window" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"></label>
+</sc-if>
+<div style="grid-column:span 2;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<button type="submit" style="background:#F7F4EC;color:#243D32;border:0;cursor:pointer;font:500 13px/1 Inter,sans-serif;padding:17px 22px;border-radius:14px;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#FFFFFF">Send enquiry</button>
+<span style="font-size:12px;line-height:1.5;flex:1;min-width:200px">{{ formNote }}</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<footer data-dv="footer" data-screen-label="S8 Footer" style="padding:clamp(64px,7cqw,110px) 24px 28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+<div style="font:300 clamp(88px,15cqw,230px)/.8 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.02em">Divora</div>
+<div style="display:flex;gap:clamp(28px,5cqw,80px);flex-wrap:wrap;padding-bottom:1cqw">
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px">Guests</div><a href="#" onClick="{{ goStays }}" style="color:#292923;text-decoration:none;padding:4px 0" style-hover="color:#243D32">Explore stays</a><a href="#" onClick="{{ goEnquire }}" style="color:#292923;text-decoration:none;padding:4px 0" style-hover="color:#243D32">Enquiry</a><a href="#" style="color:#292923;text-decoration:none;padding:4px 0" style-hover="color:#243D32">Instagram</a></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px">Owners</div><a href="#" onClick="{{ goOwners }}" style="color:#292923;text-decoration:none;padding:4px 0" style-hover="color:#243D32">Partner With Divora</a></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px">Hyderabad</div><span style="padding:4px 0">Kondapur · Gachibowli · HITEC City</span><span style="padding:4px 0;border:1px dashed #292923;border-radius:4px;padding:6px 10px;font-size:12px">Location — to be supplied by Divora</span></div>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:36px;border-top:1px solid #B49A6C;padding-top:18px;font:500 10px/1.5 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase"><span>Divora Homestays · Founded by Divya</span><span>A stay that feels like yours.</span></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;View&quot;},&quot;reducedMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;View&quot;}}">
+class Component extends DCLogic {
+  state = { mobile: false, reduced: false, active: 0, hover: -1, room: 'living', r: null, mode: 'owner', sent: false, err: {} };
+  rootRef = React.createRef();
+  form = {};
+  swingStart = 0;
+  componentDidMount() {
+    this.mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.onResize = () => { this.measure(); this.queue(); };
+    this.queue = () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.update(); }); };
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('scroll', this.queue, { capture: true, passive: true });
+    this.mq.addEventListener && this.mq.addEventListener('change', this.onResize);
+    this.measure();
+    import(new URL('divora-apartment.js', document.baseURI).href).then(m => m.renderViews(['hero', 'tall', 'living'])).then(r => this.setState({ r })).catch(e => console.warn('render failed', e));
+    this.intro();
+    setTimeout(this.queue, 60);
+  }
+  componentDidUpdate() { this.setImgs(); this.measure(); this.queue(); }
+  setImgs() { const r = this.state.r, root = this.rootRef.current; if (!r || !root) return; root.querySelectorAll('[data-img]').forEach(i => { const u = r[i.dataset.img].url; if (i.getAttribute('src') !== u) i.setAttribute('src', u); }); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); document.removeEventListener('scroll', this.queue, { capture: true }); }
+  measure() {
+    const root = this.rootRef.current; if (!root) return;
+    const mobile = this.props.view === 'mobile' || root.offsetWidth < 760;
+    const reduced = !!this.props.reducedMotion || this.mq.matches;
+    if (mobile !== this.state.mobile || reduced !== this.state.reduced) this.setState({ mobile, reduced });
+  }
+  q(n) { return this.rootRef.current.querySelector('[data-dv="' + n + '"]'); }
+  intro() {
+    if (this.props.reducedMotion || this.mq.matches) return;
+    const els = [this.q('l1i'), this.q('l2i')];
+    els.forEach(e => { e.style.transition = 'none'; e.style.transform = 'translateY(108%)'; });
+    setTimeout(() => els.forEach((e, i) => { e.style.transition = 'transform 1.2s cubic-bezier(.22,1,.36,1) ' + (i * 0.16) + 's'; e.style.transform = 'none'; }), 120);
+  }
+  update() {
+    const root = this.rootRef.current; if (!root) return;
+    const { mobile, reduced } = this.state, vh = window.innerHeight, W = root.offsetWidth;
+    const clamp = v => Math.max(0, Math.min(1, v));
+    const hr = this.q('hero').getBoundingClientRect();
+    const p = reduced ? 0 : clamp(-hr.top / (hr.height * 0.75));
+    this.q('l1').style.transform = 'translateX(' + (-p * 8) + 'cqw)';
+    this.q('l2').style.transform = 'translateX(' + (p * 8) + 'cqw)';
+    const rn = this.q('render'); if (rn) rn.style.transform = 'translateX(-50%) translateY(' + (-p * 5) + 'cqw)';
+    this.q('framebg').style.clipPath = 'inset(' + (reduced ? 0 : (1 - clamp(p * 2.5)) * 1.1) + 'cqw round 14px)';
+
+    const sr = this.q('statement').getBoundingClientRect();
+    const words = root.querySelectorAll('[data-w]');
+    const sp = reduced ? 1 : clamp((vh * 0.82 - sr.top) / (sr.height + vh * 0.2));
+    words.forEach((w, i) => { w.style.color = i < Math.ceil(sp * words.length) ? (w.getAttribute('data-w') === 'forest' ? '#243D32' : '#292923') : '#DCD4C5'; });
+
+    const br = this.q('bento').getBoundingClientRect();
+    const bp = clamp((vh * 0.75 - br.top) / br.height);
+    const idx = Math.min(3, Math.floor(bp * 4.6));
+    if (idx !== this.state.active) this.setState({ active: idx });
+    const colour = this.state.hover >= 0 ? this.state.hover / 3 : clamp((bp - 0.2) / 0.45);
+    this.q('bimg').style.filter = 'grayscale(' + (reduced ? 0 : 1 - colour).toFixed(3) + ')';
+    this.q('bimg').style.transition = this.state.hover >= 0 ? 'filter .9s cubic-bezier(.22,1,.36,1)' : 'none';
+
+    const st = this.q('stays'), r4 = st.getBoundingClientRect();
+    if (!reduced) this.q('foliage').style.transform = 'translateY(' + (-(vh - r4.top) * 0.3 * (mobile ? 0.4 : 0.25)).toFixed(1) + 'px)';
+    const cards = root.querySelectorAll('[data-card]');
+    if (cards.length) {
+      const t = clamp(-r4.top / Math.max(1, r4.height - vh)), t2 = t * (cards.length - 1);
+      const s = Math.max(0.7, Math.min(1.25, (vh - 16) / 690)), gap = W * 0.4, now = performance.now();
+      if (!this.swingStart && r4.top < vh * 0.7) this.swingStart = now;
+      let swinging = false;
+      cards.forEach((c, i) => {
+        const d = i - t2, k = 1 - 0.06 * Math.min(1, Math.abs(d));
+        let rot = 3;
+        if (this.swingStart) { const e = now - this.swingStart - i * 80; rot = e < 0 ? 3 : e > 2800 ? 0 : 3 * Math.exp(-e / 620) * Math.cos(e / 170); if (e < 2800) swinging = true; }
+        c.style.transform = 'translateX(calc(-50% + ' + (d * gap).toFixed(1) + 'px)) rotate(' + rot.toFixed(3) + 'deg) scale(' + (s * k).toFixed(4) + ')';
+        c.style.zIndex = Math.abs(d) < 0.5 ? 2 : 1;
+      });
+      root.querySelectorAll('[data-stop]').forEach((e, i) => { e.style.opacity = Math.round(t2) === i ? 1 : 0.45; });
+      if (swinging) this.queue();
+    }
+  }
+  go(name, e) {
+    if (e) e.preventDefault();
+    const el = name === 'top' ? this.rootRef.current : this.q(name); if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - (name === 'form' ? 120 : 0);
+    window.scrollTo({ top, behavior: this.state.reduced ? 'auto' : 'smooth' });
+  }
+  submit(e) {
+    e.preventDefault();
+    const f = this.form, err = {};
+    if (!(f.name || '').trim()) err.name = 'Please add your name.';
+    const c = (f.contact || '').trim();
+    if (!(/^\S+@\S+\.\S+$/.test(c) || c.replace(/\D/g, '').length >= 8)) err.contact = 'Enter a complete email address or phone number.';
+    this.setState({ err, sent: !Object.keys(err).length });
+  }
+  renderVals() {
+    const { mobile: m, reduced, active, hover, room, r, mode, sent, err } = this.state;
+    const forced = this.props.view === 'mobile', pinned = !m && !reduced;
+    const L = {
+      rootW: forced ? '390px' : '100%', pos: m ? 'static' : 'absolute', mt: m ? '28px' : '0', leftW: m ? 'auto' : '13cqw', l1ml: m ? '2cqw' : '15cqw',
+      frameH: m ? '124cqw' : '41cqw', renderW: m ? '178cqw' : '62cqw', renderTop: m ? '2cqw' : '0.5cqw',
+      factsDir: m ? 'row' : 'column', factsAlign: m ? 'left' : 'right',
+      cols2: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)', cols3: m ? 'minmax(0,1fr)' : 'repeat(3,minmax(0,1fr))', s5cols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) 340px',
+      bentoImgH: m ? '118cqw' : '0', s4H: pinned ? '280vh' : 'auto', s4Pos: pinned ? 'sticky' : 'relative', s4InnerH: pinned ? '100vh' : 'auto', rowJustify: m ? 'flex-start' : 'center',
+      revOffset: m ? '0' : '48px', ownerImgH: m ? '78cqw' : '0', ownerImgOrder: m ? 2 : 0,
+    };
+    const mk = (indent, tone, text) => ({ indent, words: text.split(' ').map(t => ({ t, tone })) });
+    const lines = [mk('0', 'charcoal', 'More than a stay.'), mk('9cqw', 'charcoal', 'A space to feel at home.'), mk('0', 'forest', 'Thoughtfully furnished'), mk('7cqw', 'forest', 'for slow mornings, work trips'), mk('15cqw', 'forest', 'and everything in between.')];
+    const act = hover >= 0 ? hover : active;
+    const rows = [['Furnished interiors', 'Move-in ready spaces, set up like a home'], ['Wi-Fi and air conditioning', 'Listed on Our Cozy Nest and Simple Like Home'], ['Kitchen facilities', 'Utensils, refrigerator and water purifier on listed stays'], ['Self check-in', 'On select stays']]
+      .map(([title, cap], i) => ({ title, cap, bg: i === act ? '#243D32' : '#FFFFFF', ink: i === act ? '#F7F4EC' : '#292923', arrow: i === act ? 'translate(4px,-4px)' : 'none', enter: () => this.setState({ hover: i }) }));
+    const stays = [
+      { variant: 'forest', scene: 'arch', title: 'Our Cozy Nest', place: 'Hyderabad', badge: '1 bed · 2 guests', slotValue: '1 bed · 1 bath', slotLabel: 'Couple-friendly stay' },
+      { variant: 'gold', scene: 'balcony', title: 'Homey 1BHK with Scenic Balcony', place: 'Hyderabad', badge: '1 BHK · Balcony', slotValue: '1 BHK', slotLabel: 'Configuration' },
+      { variant: 'sand', scene: 'window', title: 'Simple Like Home 1BHK', place: 'Serilingampally, Hyderabad', badge: '1 BHK · Kitchen', slotValue: '1 BHK apartment', slotLabel: 'Configuration' },
+    ];
+    const pts = (r && r.hero.pts) || { living: { x: '33%', y: '45%' }, bedroom: { x: '62%', y: '38%' }, balcony: { x: '66%', y: '62%' } };
+    const hotspots = [['living', 'Living'], ['bedroom', 'Bedroom'], ['balcony', 'Balcony']].map(([k, label]) => ({ label, x: pts[k].x, y: pts[k].y, active: room === k, idle: room !== k, open: () => this.setState({ room: k }) }));
+    const rooms = {
+      living: { title: 'Living room', body: 'Amenities listed on Divora stays include Wi-Fi, a TV and air conditioning. Exact features vary by stay.', list: ['Wi-Fi', 'TV', 'Air conditioning'] },
+      bedroom: { title: 'Bedroom', body: 'Our Cozy Nest is a couple-friendly stay with one bedroom and one bath, for two guests.', list: ['1 bed', '1 bath', '2 guests'] },
+      balcony: { title: 'Balcony', body: 'Homey 1BHK with Scenic Balcony is the Divora listing with a balcony.', list: ['Scenic balcony', '1 BHK'] },
+    };
+    const on = '1px solid #B49A6C', off = '1px solid transparent';
+    return {
+      rootRef: this.rootRef, L, desk: !m, pinned, unpinned: !pinned, lines, rows, stays, hotspots, room: rooms[room],
+      r: { hero: r ? r.hero.url : undefined, tall: r ? r.tall.url : undefined, living: r ? r.living.url : undefined }, rOp: r ? 1 : 0, hasRender: !!r,
+      rowLeave: () => this.setState({ hover: -1 }),
+      goTop: e => this.go('top', e), goStays: e => this.go('stays', e), goExperience: e => this.go('bento', e), goOwners: e => this.go('owners', e), goContact: e => this.go('footer', e),
+      goEnquire: e => { this.setState({ mode: 'guest', sent: false }); this.go('form', e); },
+      setOwner: e => { e.preventDefault(); this.setState({ mode: 'owner', sent: false }); this.go('form'); }, setGuest: e => { e.preventDefault(); this.setState({ mode: 'guest', sent: false }); },
+      isOwner: mode === 'owner', isGuest: mode === 'guest', tab: { owner: mode === 'owner' ? on : off, guest: mode === 'guest' ? on : off },
+      onField: e => { this.form[e.target.name] = e.target.value; }, submit: e => this.submit(e), err: { name: err.name || '', contact: err.contact || '' },
+      formNote: sent ? 'Thank you. Demo only: nothing has been sent. Divora will confirm details directly once contact channels are live.' : (mode === 'guest' ? 'This is an enquiry, not a confirmed booking.' : 'This is an enquiry. Partnership terms are subject to founder confirmation.'),
+    };
+  }
+}
+</script>
+</body>
+</html>

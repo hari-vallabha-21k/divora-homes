@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="_ds/design-system-bcffba03-aef4-454b-9230-118735ba2ae4/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>html,body{margin:0;background:#F7F4EC}a{color:#243D32}a:hover{color:#292923}input::placeholder{color:currentColor;opacity:.5}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="container-type:inline-size;width:{{ L.rootW }};margin:0 auto;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif;overflow-x:clip">
+
+<dc-import name="DivoraHeroLive" embedded="{{ true }}" on-nav="{{ heroNav }}" reduced-motion="{{ heroReduced }}" hint-size="100%,100vh"></dc-import>
+
+
+<section data-dv="statement" data-screen-label="S2 Your host" style="position:relative;z-index:5;margin-top:-100vh;background:#F7F4EC;padding:clamp(96px,11cqw,170px) clamp(20px,3cqw,44px);font-family:Manrope,sans-serif">
+<div style="display:grid;grid-template-columns:{{ L.hostCols }};gap:clamp(32px,5cqw,88px);align-items:end">
+<div style="position:relative">
+<div data-reveal="1" style="position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#DCD4C5;will-change:clip-path">
+<div data-rimg="1" style="position:absolute;inset:0;will-change:transform"><image-slot id="divora-host" shape="rect" placeholder="Portrait of Divya"></image-slot></div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:12px;margin-top:12px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase"><span style="white-space:nowrap">Divya, founder</span><span style="white-space:nowrap">Photo to be supplied</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:clamp(22px,2.4cqw,36px)">
+<span style="font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">(01) Your host</span>
+<h2 style="margin:0;font:400 clamp(48px,6.4cqw,100px)/.94 'Instrument Serif',serif;letter-spacing:-.025em">
+<span style="display:block;overflow:hidden"><span data-rl="1" style="display:block;padding-bottom:.08em;will-change:transform">Hosted by Divya,</span></span>
+<span style="display:block;overflow:hidden"><span data-rl="1" style="display:block;padding-bottom:.08em;will-change:transform;font-style:italic;color:#243D32">not a front desk.</span></span>
+</h2>
+<p style="margin:0;font:500 16px/1.65 Manrope,sans-serif;max-width:460px;text-wrap:pretty">Divora is a small, founder-run homestay brand in Hyderabad. Every stay is a furnished home around Kondapur, Gachibowli and HITEC City, and every booking starts with a conversation.</p>
+<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-top:1px solid #B49A6C;padding-top:22px">
+<a href="#" onClick="{{ goEnquire }}" style="background:#243D32;color:#F7F4EC;text-decoration:none;font:600 13px/1 Manrope,sans-serif;padding:17px 22px;border-radius:999px;white-space:nowrap;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Write to Divora ↗</a>
+<a href="#" onClick="{{ goStays }}" style="font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#292923;text-decoration:none;white-space:nowrap;border-bottom:1px solid #B49A6C;padding-bottom:3px">See the stays</a>
+</div>
+</div>
+</div>
+</section>
+
+<section data-dv="bento" data-screen-label="S3 Experience" style="position:relative;height:{{ L.expH }}">
+<sc-if value="{{ pinned }}" hint-placeholder-val="{{ true }}">
+<div style="position:sticky;top:0;height:100vh;overflow:hidden;background:#F7F4EC">
+<div style="position:absolute;left:0;right:0;top:0;z-index:4;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:24px clamp(20px,3cqw,44px);pointer-events:none">
+<div data-ecol="1" style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;transition:color .6s">(02) Experience</div>
+<div data-ecol="1" style="font:italic 400 22px/1 'Cormorant Garamond',serif;transition:color .6s">The Divora experience</div>
+<div data-ecol="1" style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;text-align:right;transition:color .6s">{{ activeN }} / 04</div>
+</div>
+<sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+<div data-ei="1" style="position:absolute;left:50%;top:50%;width:34cqw;height:22cqw;transform:translate(-50%,-50%);border-radius:14px;overflow:hidden;background:#DCD4C5;color:#292923;will-change:transform">
+<image-slot id="{{ row.slot }}" data-photo="{{ row.photo }}" shape="rect" placeholder="{{ row.ph }}"></image-slot>
+<div data-escrim="1" style="position:absolute;inset:0;background:#243D32;opacity:0;pointer-events:none"></div>
+</div>
+</sc-for>
+<sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+<div data-et="1" style="position:absolute;left:clamp(20px,3cqw,44px);top:50%;z-index:3;max-width:33cqw;font:300 clamp(34px,3.6cqw,56px)/.98 'Cormorant Garamond',serif;text-transform:uppercase;text-wrap:balance;pointer-events:none;will-change:transform,opacity">{{ row.title }}</div>
+</sc-for>
+<div style="position:absolute;left:clamp(20px,3cqw,44px);bottom:32px;z-index:4;display:flex;flex-direction:column;gap:6px;max-width:24cqw">
+<sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+<button data-ex="1" onClick="{{ row.jump }}" style="border:0;background:none;padding:5px 0;text-align:left;cursor:pointer;color:#292923;white-space:nowrap;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;transition:opacity .6s cubic-bezier(.22,1,.36,1),color .6s">{{ row.n }} {{ row.title }}</button>
+</sc-for>
+</div>
+<div data-ecap="1" style="position:absolute;right:clamp(20px,3cqw,44px);bottom:32px;z-index:4;max-width:230px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right;transition:color .6s">
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">{{ capActive }}</div>
+<span style="background:#F7F4EC;color:#292923;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Sample photos — to be replaced by Divora</span>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ unpinned }}" hint-placeholder-val="{{ false }}">
+<div style="padding:0 clamp(20px,3cqw,44px) clamp(96px,11cqw,170px)">
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px">(02) Experience</div>
+<h2 style="margin:0 0 32px;font:300 clamp(40px,5cqw,76px)/.98 'Cormorant Garamond',serif;text-transform:uppercase">The Divora<br><span style="padding-left:1.6em;font-style:italic">experience</span></h2>
+<div style="display:grid;grid-template-columns:{{ L.cols2 }};gap:36px 20px">
+<sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#DCD4C5"><image-slot id="{{ row.slot }}" data-photo="{{ row.photo }}" shape="rect" placeholder="{{ row.ph }}"></image-slot></div>
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">{{ row.n }}</div>
+<div style="font:300 34px/1 'Cormorant Garamond',serif;text-transform:uppercase">{{ row.title }}</div>
+<div style="font-size:14px;line-height:1.6">{{ row.cap }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:20px;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Sample photos — to be replaced by Divora</div>
+</div>
+</sc-if>
+</section>
+
+<section data-dv="stays" data-screen-label="S4 Stays" style="position:relative;overflow:hidden;background:#243D32;color:#F7F4EC;padding:clamp(40px,5cqw,72px) 0 clamp(44px,5cqw,76px)">
+<div data-dv="foliage" style="position:absolute;left:0;right:0;top:-12%;height:124%;color:#F7F4EC;will-change:transform">
+<image-slot id="stays-foliage" shape="rect" src="https://images.pexels.com/photos/35661544/pexels-photo-35661544.jpeg?auto=compress&cs=tinysrgb&w=1800" placeholder="Background — soft-focus foliage photo"></image-slot>
+</div>
+<div style="position:absolute;inset:0;filter:blur(28px);pointer-events:none">
+<div style="position:absolute;left:-8%;top:-6%;width:62%;height:46%;background:rgba(220,212,197,.10);border-radius:100% 0 100% 0;transform:rotate(-22deg)"></div>
+<div style="position:absolute;right:-12%;top:8%;width:52%;height:40%;background:rgba(41,41,35,.32);border-radius:0 100% 0 100%;transform:rotate(16deg)"></div>
+<div style="position:absolute;left:-14%;bottom:-8%;width:56%;height:40%;background:rgba(41,41,35,.36);border-radius:0 100% 0 100%;transform:rotate(-28deg)"></div>
+<div style="position:absolute;right:-6%;bottom:-4%;width:46%;height:34%;background:rgba(180,154,108,.12);border-radius:100% 0 100% 0;transform:rotate(-12deg)"></div>
+</div>
+<div style="position:absolute;inset:0;background:rgba(36,61,50,.28);pointer-events:none"></div>
+<div style="position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding:0 clamp(20px,3cqw,44px)">
+<div>
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px">(03) Stays</div>
+<h2 style="margin:0;font:300 clamp(36px,3.9cqw,58px)/1 'Cormorant Garamond',serif;text-transform:uppercase">Find your kind<br><span style="font-style:italic;padding-left:1.2em">of stay.</span></h2>
+</div>
+<div style="display:flex;gap:16px;align-items:center">
+<span style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;max-width:220px;text-align:right">Availability confirmed on enquiry</span>
+<button onClick="{{ togglePlay }}" aria-label="{{ playLabel }}" style="width:44px;height:44px;border-radius:50%;border:1px solid #F7F4EC;background:transparent;color:#F7F4EC;cursor:pointer;display:flex;align-items:center;justify-content:center;font:500 11px/1 Inter,sans-serif;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#F7F4EC;color:#243D32">{{ playIcon }}</button>
+</div>
+</div>
+<div data-dv="track" onMouseEnter="{{ hoverOn }}" onMouseLeave="{{ hoverOff }}" onPointerDown="{{ touchOn }}" onPointerUp="{{ touchOff }}" onFocus="{{ hoverOn }}" onBlur="{{ hoverOff }}" style="position:relative;z-index:2;display:flex;gap:clamp(20px,2.6cqw,40px);overflow-x:auto;scrollbar-width:none;padding:clamp(40px,4.4cqw,68px) 0 8px">
+<sc-for list="{{ loopStays }}" as="s" hint-placeholder-count="6">
+<div onClick="{{ s.open }}" role="button" tabIndex="0" aria-label="{{ s.aria }}" style="flex:none;width:{{ L.cardW }};display:grid;grid-template-columns:{{ L.cardCols }};background:#F7F4EC;color:#292923;border-radius:14px;overflow:hidden;cursor:pointer;font-family:Manrope,sans-serif;transition:transform .9s cubic-bezier(.22,1,.36,1)" style-hover="transform:translateY(-6px)">
+<div style="position:relative;min-height:{{ L.cardImgH }};background:#DCD4C5;overflow:hidden">
+<image-slot id="{{ s.slot }}" data-photo="{{ s.photo }}" shape="rect" placeholder="{{ s.ph }}"></image-slot>
+<span style="position:absolute;left:12px;bottom:12px;background:#F7F4EC;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-radius:999px;white-space:nowrap;pointer-events:none">{{ s.badge }}</span>
+</div>
+<div style="padding:clamp(20px,1.8cqw,28px);display:flex;flex-direction:column;gap:14px;min-width:0">
+<div style="display:flex;justify-content:space-between;gap:12px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase"><span>{{ s.num }}</span><span style="color:#243D32">Hyderabad</span></div>
+<div style="font:400 clamp(28px,2.4cqw,36px)/1.02 'Instrument Serif',serif;letter-spacing:-.005em;text-wrap:balance">{{ s.title }}</div>
+<div style="display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500"><svg width="10" height="13" viewBox="0 0 10 13" fill="#B49A6C"><path d="M5 0a5 5 0 0 0-5 5c0 3.6 5 8 5 8s5-4.4 5-8a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path></svg>{{ s.place }}</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="3"><span style="border:1px solid #DCD4C5;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:500;white-space:nowrap">{{ t }}</span></sc-for></div>
+<div style="margin-top:auto;padding-top:14px;border-top:1px solid #DCD4C5;display:flex;justify-content:space-between;align-items:center;gap:12px">
+<div><div style="font:italic 400 19px/1.1 'Instrument Serif',serif">{{ s.slotValue }}</div><div style="font-size:11px;font-weight:500;margin-top:3px">{{ s.slotLabel }}</div></div>
+<a href="#" onClick="{{ s.view }}" style="display:flex;align-items:center;gap:8px;background:#243D32;color:#F7F4EC;text-decoration:none;font-size:12px;font-weight:600;padding:12px 14px;border-radius:999px;white-space:nowrap">View details <svg width="11" height="11" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15 15 3M6 3h9v9"></path></svg></a>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section data-dv="inside" data-screen-label="S5 Step inside" style="background:#292923;color:#F7F4EC;padding:clamp(72px,8cqw,130px) clamp(20px,3cqw,44px);font-family:Manrope,sans-serif">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(24px,2.6cqw,40px)">
+<h2 style="margin:0;font:400 clamp(44px,5.4cqw,84px)/.92 'Instrument Serif',serif;letter-spacing:-.02em">Step inside<br><span style="font-style:italic;color:#DCD4C5">before you arrive.</span></h2>
+<span style="font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">{{ room.idx }}</span>
+</div>
+<div style="position:relative;height:{{ L.tourH }};border-radius:14px;overflow:hidden;background:#DCD4C5;color:#292923">
+<sc-for list="{{ tour }}" as="t" hint-placeholder-count="4">
+<div style="position:absolute;inset:0;opacity:{{ t.op }};transform:scale({{ t.sc }});transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.6s cubic-bezier(.22,1,.36,1);pointer-events:{{ t.pe }}">
+<image-slot id="{{ t.slot }}" data-photo="{{ t.photo }}" shape="rect" placeholder="{{ t.ph }}"></image-slot>
+</div>
+</sc-for>
+<div style="position:absolute;left:clamp(12px,1.4cqw,20px);bottom:clamp(12px,1.4cqw,20px);right:clamp(12px,1.4cqw,20px);display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;pointer-events:none">
+<div style="background:#F7F4EC;color:#292923;border-radius:14px;padding:20px 22px;max-width:360px;display:flex;flex-direction:column;gap:12px;pointer-events:auto">
+<div style="font:italic 400 30px/1 'Instrument Serif',serif">{{ room.title }}</div>
+<p style="margin:0;font:500 13px/1.6 Manrope,sans-serif;text-wrap:pretty">{{ room.body }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ room.list }}" as="it" hint-placeholder-count="3"><span style="border:1px solid #DCD4C5;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:500;white-space:nowrap">{{ it }}</span></sc-for></div>
+<a href="#" onClick="{{ goEnquire }}" style="align-self:flex-start;background:#243D32;color:#F7F4EC;text-decoration:none;font:600 12px/1 Manrope,sans-serif;padding:13px 16px;border-radius:999px;white-space:nowrap">Send enquiry ↗</a>
+</div>
+<span style="background:#292923;color:#F7F4EC;font:600 9px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:8px 10px;border-radius:4px">Sample photo · not a specific Divora property</span>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:4px clamp(20px,3cqw,48px);margin-top:clamp(18px,2cqw,28px)">
+<sc-for list="{{ tour }}" as="t" hint-placeholder-count="4">
+<button onClick="{{ t.open }}" aria-pressed="{{ t.on }}" style="border:0;background:none;padding:6px 0;cursor:pointer;color:{{ t.ink }};font:{{ t.fs }} clamp(34px,4.2cqw,64px)/1 'Instrument Serif',serif;letter-spacing:-.015em;display:flex;align-items:flex-start;gap:8px;transition:color .6s cubic-bezier(.22,1,.36,1)" style-hover="color:#F7F4EC"><sup style="font:600 10px/1 Manrope,sans-serif;letter-spacing:.14em;padding-top:.6em">{{ t.n }}</sup>{{ t.label }}</button>
+</sc-for>
+</div>
+</section>
+
+<section data-screen-label="S6 Reviews" style="padding:0 clamp(20px,3cqw,44px) clamp(96px,11cqw,170px);font-family:Manrope,sans-serif">
+<div style="display:grid;grid-template-columns:{{ L.ownerCols }};gap:clamp(32px,5cqw,80px);align-items:start;border-top:1px solid #292923;padding-top:clamp(28px,3cqw,44px)">
+<div style="display:flex;flex-direction:column;gap:22px">
+<span style="font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">Guest reviews</span>
+<div style="font:400 clamp(120px,14cqw,210px)/.6 'Instrument Serif',serif;color:#B49A6C;height:.5em">“</div>
+<h2 style="margin:0;font:400 clamp(40px,4.6cqw,70px)/.98 'Instrument Serif',serif;letter-spacing:-.015em">In our guests’ <i style="color:#243D32">own words</i> — soon.</h2>
+<p style="margin:0;font:500 14px/1.6 Manrope,sans-serif;max-width:400px;text-wrap:pretty">Only verified reviews from real Divora stays will appear here. Stayed with us already? Tell us how it went.</p>
+<div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+<a href="#" onClick="{{ goEnquire }}" style="border:1px solid #292923;color:#292923;text-decoration:none;font:600 13px/1 Manrope,sans-serif;padding:15px 20px;border-radius:999px;white-space:nowrap;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923;color:#F7F4EC">Share your stay</a>
+<span style="border:1px dashed #292923;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:9px;line-height:1.5;display:inline-block;padding:6px 10px;border-radius:4px">Illustrative layout — verified reviews to be added</span>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr);gap:8px">
+<div style="border:1px solid #DCD4C5;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:22px;min-height:200px;box-sizing:border-box">
+<div style="display:flex;justify-content:space-between;gap:12px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase"><span>(01)</span><span style="white-space:nowrap;border:1px dashed #292923;border-radius:4px;padding:4px 7px">Review to be added</span></div>
+<div style="margin-top:auto;font:italic 400 clamp(24px,2cqw,30px)/1.05 'Instrument Serif',serif">Our Cozy Nest</div>
+</div>
+<div style="border:1px solid #DCD4C5;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:22px;min-height:200px;box-sizing:border-box">
+<div style="display:flex;justify-content:space-between;gap:12px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase"><span>(02)</span><span style="white-space:nowrap;border:1px dashed #292923;border-radius:4px;padding:4px 7px">Review to be added</span></div>
+<div style="margin-top:auto;font:italic 400 clamp(24px,2cqw,30px)/1.05 'Instrument Serif',serif">Homey 1BHK with Scenic Balcony</div>
+</div>
+<div style="border:1px solid #DCD4C5;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:22px;min-height:200px;box-sizing:border-box">
+<div style="display:flex;justify-content:space-between;gap:12px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase"><span>(03)</span><span style="white-space:nowrap;border:1px dashed #292923;border-radius:4px;padding:4px 7px">Review to be added</span></div>
+<div style="margin-top:auto;font:italic 400 clamp(24px,2cqw,30px)/1.05 'Instrument Serif',serif">Simple Like Home 1BHK Apartment</div>
+</div>
+</div>
+</div>
+</section>
+
+<section data-dv="owners" data-screen-label="S7 Owners" style="padding:0 clamp(20px,3cqw,44px)">
+<div style="background:#243D32;color:#F7F4EC;border-radius:14px;padding:clamp(28px,4.4cqw,64px);display:grid;grid-template-columns:{{ L.ownerCols }};gap:clamp(32px,5cqw,80px)">
+<div style="display:flex;flex-direction:column;gap:22px;order:{{ L.formOrder }}">
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">(06) Owners</div>
+<form data-dv="form" onSubmit="{{ submit }}" noValidate style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 20px">
+<div style="grid-column:span 2;display:flex;gap:22px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">
+<a href="#" onClick="{{ setOwner }}" style="color:#F7F4EC;text-decoration:none;padding:6px 0;white-space:nowrap;border-bottom:{{ tab.owner }}">I own a property</a>
+<a href="#" onClick="{{ setGuest }}" style="color:#F7F4EC;text-decoration:none;padding:6px 0;white-space:nowrap;border-bottom:{{ tab.guest }}">I'd like to stay</a>
+</div>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Name<input name="name" onInput="{{ onField }}" placeholder="Your name" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"><span style="text-transform:none;letter-spacing:0;font:400 12px/1.3 Inter,sans-serif;min-height:16px">{{ err.name }}</span></label>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Email or phone<input name="contact" onInput="{{ onField }}" placeholder="How we reach you" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"><span style="text-transform:none;letter-spacing:0;font:400 12px/1.3 Inter,sans-serif;min-height:16px">{{ err.contact }}</span></label>
+<sc-if value="{{ isOwner }}" hint-placeholder-val="{{ true }}">
+<label style="grid-column:span 2;min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Property area and configuration<input name="details" onInput="{{ onField }}" placeholder="e.g. Kondapur, 1 BHK" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"></label>
+</sc-if>
+<sc-if value="{{ isGuest }}" hint-placeholder-val="{{ false }}">
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Stay<select name="stay" onInput="{{ onField }}" style="font:400 15px/1.2 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:#243D32;padding:9px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box"><option>Any stay</option><option>Our Cozy Nest</option><option>Homey 1BHK with Scenic Balcony</option><option>Simple Like Home 1BHK Apartment</option></select></label>
+<label style="min-width:0;display:flex;flex-direction:column;gap:8px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">Preferred dates<input name="details" onInput="{{ onField }}" placeholder="Dates or a rough window" style="font:400 15px/1 Inter,sans-serif;border:0;border-bottom:1px solid #F7F4EC;background:transparent;padding:10px 0;outline:none;color:#F7F4EC;border-radius:0;min-width:0;width:100%;box-sizing:border-box" style-focus="border-bottom-color:#B49A6C"></label>
+</sc-if>
+<div style="grid-column:span 2;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<button type="submit" style="background:#F7F4EC;color:#243D32;border:0;cursor:pointer;font:500 13px/1 Inter,sans-serif;padding:17px 22px;border-radius:14px;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#FFFFFF">Send enquiry</button>
+<span style="font-size:12px;line-height:1.5;flex:1;min-width:200px">{{ formNote }}</span>
+</div>
+</form>
+</div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:24px;text-align:right">
+<h2 style="margin:0;font:300 clamp(44px,5.6cqw,84px)/.96 'Cormorant Garamond',serif;text-transform:uppercase">Your property.<br><span style="font-style:italic">Our expertise.</span><br>Shared growth.</h2>
+<p style="margin:0;font-size:15px;line-height:1.6;max-width:340px">Own a furnished home in Hyderabad? Tell Divora about it and start a conversation.</p>
+<span style="border:1px dashed #F7F4EC;font:500 9px/1.4 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:4px">Subject to founder confirmation</span>
+<a href="#" onClick="{{ setOwner }}" style="border:1px solid #F7F4EC;color:#F7F4EC;text-decoration:none;font:500 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:14px 22px;border-radius:999px;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#F7F4EC;color:#243D32">Partner With Divora ↗</a>
+</div>
+</div>
+</section>
+
+<footer data-dv="footer" data-screen-label="S8 Footer" style="padding:clamp(72px,8cqw,120px) clamp(20px,3cqw,44px) 28px">
+<div style="display:grid;grid-template-columns:{{ L.cols3 }};gap:32px;border-top:1px solid #B49A6C;padding-top:28px">
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px">Guests</div><a href="#" onClick="{{ goStays }}" style="color:#292923;text-decoration:none;padding:3px 0" style-hover="color:#243D32">Explore stays</a><a href="#" onClick="{{ goEnquire }}" style="color:#292923;text-decoration:none;padding:3px 0" style-hover="color:#243D32">Enquiry</a><a href="#" style="color:#292923;text-decoration:none;padding:3px 0" style-hover="color:#243D32">Instagram</a></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px">Owners</div><a href="#" onClick="{{ goOwners }}" style="color:#292923;text-decoration:none;padding:3px 0" style-hover="color:#243D32">Partner With Divora</a></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px;align-items:flex-start"><div style="font:500 10px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px">Hyderabad</div><span style="padding:3px 0">Kondapur · Gachibowli · HITEC City</span><span style="border:1px dashed #292923;border-radius:4px;padding:6px 10px;font-size:12px">Location — to be supplied by Divora</span></div>
+</div>
+<div style="margin-top:clamp(48px,6cqw,90px);font:300 {{ L.footWord }}/.76 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap">Divora</div>
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px;font:500 10px/1.5 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase"><span>Divora Homestays · Founded by Divya</span><span>A stay that feels like yours.</span></div>
+</footer>
+</div>
+<sc-if value="{{ hasOpen }}" hint-placeholder-val="{{ false }}">
+<div data-dv="sheet" role="dialog" aria-modal="true" aria-label="{{ sheet.title }}" style="position:fixed;inset:0;z-index:60;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif;overflow:auto;overscroll-behavior:contain">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,2vw,28px)">
+<div data-sh="1" style="font:400 22px/1 'Cormorant Garamond',serif;letter-spacing:.32em;text-transform:uppercase">Divora</div>
+<div data-sh="1" style="display:flex;gap:10px;align-items:center">
+<span style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">{{ sheet.idx }}</span>
+<button onClick="{{ closeStay }}" aria-label="Close" style="width:44px;height:44px;border-radius:50%;border:1px solid #292923;background:transparent;color:#292923;cursor:pointer;font:400 16px/1 Inter,sans-serif;transition:background .6s cubic-bezier(.22,1,.36,1),color .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923;color:#F7F4EC">✕</button>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:{{ L.sheetCols }};gap:14px;padding:0 clamp(16px,2vw,28px) clamp(16px,2vw,28px)">
+<aside style="background:#FFFFFF;border-radius:14px;padding:clamp(22px,2.2vw,32px);display:flex;flex-direction:column;gap:20px;min-height:{{ L.asideH }};box-sizing:border-box">
+<div data-sh="1" style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="background:#243D32;color:#F7F4EC;font:500 10px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px;white-space:nowrap">{{ sheet.badge }}</span><span style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">Hyderabad</span></div>
+<div data-sh="1"><h2 style="margin:0;font:italic 500 clamp(36px,3.2vw,48px)/1 'Cormorant Garamond',serif;text-wrap:balance">{{ sheet.title }}</h2>
+<div style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px"><svg width="11" height="14" viewBox="0 0 10 13" fill="currentColor"><path d="M5 0a5 5 0 0 0-5 5c0 3.6 5 8 5 8s5-4.4 5-8a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path></svg>{{ sheet.place }}</div></div>
+<div data-sh="1" style="border-top:1px solid #B49A6C">
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:16px 0 6px">Details</div>
+<sc-for list="{{ sheet.rows }}" as="r" hint-placeholder-count="3"><div style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #DCD4C5;font-size:14px"><span>{{ r.k }}</span><span style="font-weight:500">{{ r.v }}</span></div></sc-for>
+</div>
+<div data-sh="1">
+<div style="font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding-bottom:10px">Amenities listed</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sheet.amen }}" as="a" hint-placeholder-count="4"><span style="border:1px solid #DCD4C5;border-radius:999px;padding:8px 13px;font-size:13px;white-space:nowrap">{{ a }}</span></sc-for></div>
+</div>
+<div data-sh="1" style="margin-top:auto;display:flex;flex-direction:column;gap:14px;border-top:1px solid #B49A6C;padding-top:18px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px"><div><div style="font:500 24px/1 'Cormorant Garamond',serif">Rates on enquiry</div><div style="font:italic 400 12px/1.4 Inter,sans-serif;margin-top:4px">Availability to be confirmed by Divora</div></div></div>
+<a href="#" onClick="{{ enquireStay }}" style="background:#243D32;color:#F7F4EC;text-decoration:none;font:500 14px/1 Inter,sans-serif;padding:18px 22px;border-radius:14px;text-align:center;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Send enquiry</a>
+<div style="font-size:12px;line-height:1.5">This is an enquiry, not a confirmed booking.</div>
+</div>
+</aside>
+<div data-dv="gal" style="position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));gap:14px;height:{{ L.galH }}">
+<sc-for list="{{ sheet.photos }}" as="p" hint-placeholder-count="6">
+<button data-cell="1" onClick="{{ p.open }}" aria-label="{{ p.label }}" style="position:relative;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:#DCD4C5;min-height:0">
+<img data-src="{{ p.url }}" alt="{{ p.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.04)">
+</button>
+</sc-for>
+<sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
+<div data-dv="big" style="position:absolute;inset:0;z-index:3;border-radius:14px;overflow:hidden;background:#DCD4C5">
+<img data-src="{{ bigUrl }}" alt="{{ bigLabel }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+<button onClick="{{ prevPhoto }}" aria-label="Previous photo" style="position:absolute;left:18px;top:50%;margin-top:-24px;width:48px;height:48px;border-radius:50%;border:0;background:#F7F4EC;color:#292923;cursor:pointer;font:400 18px/1 Inter,sans-serif">←</button>
+<button onClick="{{ nextPhoto }}" aria-label="Next photo" style="position:absolute;right:18px;top:50%;margin-top:-24px;width:48px;height:48px;border-radius:50%;border:0;background:#F7F4EC;color:#292923;cursor:pointer;font:400 18px/1 Inter,sans-serif">→</button>
+<button onClick="{{ closePhoto }}" style="position:absolute;right:18px;top:18px;border:0;background:#F7F4EC;color:#292923;cursor:pointer;font:500 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:12px 16px;border-radius:999px">All photos</button>
+<div style="position:absolute;left:18px;bottom:18px;display:flex;gap:8px;align-items:center"><span style="background:#F7F4EC;font:500 11px/1 Inter,sans-serif;letter-spacing:.12em;padding:10px 13px;border-radius:999px">{{ photoN }}</span><span style="background:#292923;color:#F7F4EC;font:500 9px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 11px;border-radius:4px">Sample photo</span></div>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="padding:0 clamp(16px,2vw,28px) 20px;font:500 10px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase">Sample photos — to be replaced with Divora's own</div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;View&quot;},&quot;reducedMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;View&quot;}}">
+class Component extends DCLogic {
+  state = { open: null, photo: -1, mobile: false, reduced: false, active: 0, hover: -1, room: 'living', mode: 'owner', sent: false, err: {} };
+  rootRef = React.createRef();
+  form = {};
+  swingStart = 0;
+  componentDidMount() {
+    this.mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.onResize = () => { this.measure(); this.queue(); };
+    this.queue = () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.update(); }); };
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('scroll', this.queue, { capture: true, passive: true });
+    this.measure(); this.intro(); setTimeout(this.queue, 60); this.photos(); setTimeout(() => this.photos(), 300);
+    this.hold = { hover: false, touch: false }; this.pos = null; this.last = 0;
+    const tick = now => {
+      this.loop = requestAnimationFrame(tick);
+      const tr = this.q('track'); if (!tr) return;
+      const set = tr.scrollWidth / 3; if (!set) return;
+      const dt = this.last ? Math.min(64, now - this.last) : 16; this.last = now;
+      if (this.pos === null) { this.pos = set; tr.scrollLeft = set; }
+      const moving = !this.state.paused && !this.state.reduced && !this.hold.hover && !this.hold.touch && this.state.open == null;
+      if (!moving) { this.pos = tr.scrollLeft; }
+      else this.pos += dt * (this.state.mobile ? 0.03 : 0.045);
+      if (this.pos >= set * 2) this.pos -= set;
+      if (this.pos < set * 0.5) this.pos += set;
+      if (Math.abs(tr.scrollLeft - this.pos) >= 0.5) tr.scrollLeft = this.pos;
+    };
+    this.loop = requestAnimationFrame(tick);
+    this.onKey = e => {
+      if (this.state.open == null) { if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.getAttribute && e.target.getAttribute('role') === 'button' && e.target.onclick === null && e.target.closest('[data-dv="track"]')) { e.preventDefault(); e.target.click(); } return; }
+      if (e.key === 'Escape') { this.state.photo >= 0 ? this.closePhoto() : this.closeStay(); }
+      else if (this.state.photo >= 0 && e.key === 'ArrowRight') this.stepPhoto(1);
+      else if (this.state.photo >= 0 && e.key === 'ArrowLeft') this.stepPhoto(-1);
+    };
+    document.addEventListener('keydown', this.onKey);
+  }
+  componentDidUpdate() {
+    this.photos(); this.measure(); this.queue();
+    const o = this.state.open, p = this.state.photo;
+    if (o != null && this._o == null) this.animOpen();
+    if (p !== this._p) this.animPhoto(this._p == null ? -1 : this._p);
+    this._o = o; this._p = p;
+  }
+  qd(n) { return document.querySelector('[data-dv="' + n + '"]'); }
+  ez() { return 'cubic-bezier(.22,1,.36,1)'; }
+  rectInset(r) { const vw = window.innerWidth, vh = window.innerHeight; return 'inset(' + r.top + 'px ' + (vw - r.right) + 'px ' + (vh - r.bottom) + 'px ' + r.left + 'px round 22px)'; }
+  openStay(k, el) {
+    if (this.state.open != null) return;
+    this.originEl = el; this.origin = el.getBoundingClientRect(); this.focusBack = el;
+    this.setState({ open: k, photo: -1 });
+  }
+  animOpen() {
+    const s = this.qd('sheet'); if (!s) return;
+    document.documentElement.style.overflow = 'hidden';
+    if (this.state.reduced) { s.focus(); return; }
+    if (this.origin) { s.style.transition = 'none'; s.style.clipPath = this.rectInset(this.origin); s.offsetWidth; s.style.transition = 'clip-path 1.1s ' + this.ez(); s.style.clipPath = 'inset(0px 0px 0px 0px round 0px)'; }
+    [...s.querySelectorAll('[data-sh],[data-cell]')].forEach((el, i) => {
+      el.style.transition = 'none'; el.style.opacity = 0; el.style.transform = 'translateY(32px)'; el.offsetWidth;
+      const d = (0.4 + i * 0.06) + 's'; el.style.transition = 'opacity .9s ' + this.ez() + ' ' + d + ', transform 1s ' + this.ez() + ' ' + d; el.style.opacity = 1; el.style.transform = 'none';
+      setTimeout(() => { el.style.transition = ''; el.style.transform = ''; }, 1600 + i * 60);
+    });
+  }
+  closeStay() {
+    const s = this.qd('sheet'), done = () => { document.documentElement.style.overflow = ''; this.setState({ open: null, photo: -1 }); };
+    if (!s || this.state.reduced) return done();
+    const r = this.originEl && this.originEl.getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight;
+    const ok = r && r.right > 0 && r.left < vw && r.width > 0;
+    s.scrollTop = 0; s.style.transition = 'clip-path .8s ' + this.ez() + ', opacity .8s ' + this.ez();
+    if (ok) s.style.clipPath = this.rectInset(r); else { s.style.clipPath = 'inset(40% 40% 40% 40% round 22px)'; s.style.opacity = 0; }
+    setTimeout(done, 760);
+  }
+  cellInset(i) {
+    const g = this.qd('gal'), c = g && g.querySelectorAll('[data-cell]')[i]; if (!c) return 'inset(0 round 14px)';
+    const a = g.getBoundingClientRect(), b = c.getBoundingClientRect();
+    return 'inset(' + (b.top - a.top) + 'px ' + (a.right - b.right) + 'px ' + (a.bottom - b.bottom) + 'px ' + (b.left - a.left) + 'px round 14px)';
+  }
+  animPhoto(prev) {
+    const big = this.qd('big'), ph = this.state.photo; if (!big || ph < 0 || this.state.reduced) return;
+    if (prev < 0) { big.style.transition = 'none'; big.style.clipPath = this.cellInset(ph); big.offsetWidth; big.style.transition = 'clip-path 1s ' + this.ez(); big.style.clipPath = 'inset(0px round 14px)'; }
+    else { const im = big.querySelector('img'); im.style.transition = 'none'; im.style.opacity = 0; im.style.transform = 'translateX(' + (this.dir * 48) + 'px) scale(1.03)'; im.offsetWidth; im.style.transition = 'opacity .6s ' + this.ez() + ', transform 1s ' + this.ez(); im.style.opacity = 1; im.style.transform = 'none'; }
+  }
+  closePhoto() {
+    const big = this.qd('big'), ph = this.state.photo, done = () => this.setState({ photo: -1 });
+    if (!big || this.state.reduced) return done();
+    big.style.transition = 'clip-path .8s ' + this.ez(); big.style.clipPath = this.cellInset(ph); setTimeout(done, 760);
+  }
+  stepPhoto(d) { this.dir = d; const n = 6; this.setState(s => ({ photo: (s.photo + d + n) % n })); }
+  photos() { document.querySelectorAll('img[data-src]').forEach(el => { const p = el.getAttribute('data-src'); if (p && p.indexOf('{{') < 0 && el.getAttribute('src') !== p) el.setAttribute('src', p); }); const r = this.rootRef.current; if (!r) return; r.querySelectorAll('image-slot[data-photo]').forEach(el => { const p = el.getAttribute('data-photo'); if (p && p.indexOf('{{') < 0 && el.getAttribute('src') !== p) el.setAttribute('src', p); }); }
+  componentWillUnmount() { document.removeEventListener('keydown', this.onKey); document.documentElement.style.overflow = ''; cancelAnimationFrame(this.loop); clearTimeout(this.touchT); window.removeEventListener('resize', this.onResize); document.removeEventListener('scroll', this.queue, { capture: true }); }
+  measure() {
+    const root = this.rootRef.current; if (!root) return;
+    const mobile = this.props.view === 'mobile' || root.offsetWidth < 760;
+    const reduced = !!this.props.reducedMotion || this.mq.matches;
+    if (mobile !== this.state.mobile || reduced !== this.state.reduced) this.setState({ mobile, reduced });
+  }
+  q(n) { return this.rootRef.current && this.rootRef.current.querySelector('[data-dv="' + n + '"]'); }
+  intro() {
+    if (this.props.reducedMotion || this.mq.matches) return;
+    const els = [this.q('l1i'), this.q('l2i'), this.q('heroimg')].filter(Boolean);
+    els.forEach((e, i) => { e.style.transition = 'none'; e.style.transform = i < 2 ? 'translateY(110%)' : 'translateY(40px)'; if (i === 2) e.style.opacity = 0; });
+    setTimeout(() => els.forEach((e, i) => { const d = i * 0.14 + 's'; e.style.transition = 'transform 1.2s cubic-bezier(.22,1,.36,1) ' + d + ',opacity 1.2s cubic-bezier(.22,1,.36,1) ' + d; e.style.transform = 'none'; e.style.opacity = 1; setTimeout(() => { e.style.transition = ''; }, 1500); }), 120);
+  }
+  update() {
+    const root = this.rootRef.current; if (!root) return;
+    const { mobile, reduced } = this.state, vh = window.innerHeight, W = root.offsetWidth;
+    const clamp = v => Math.max(0, Math.min(1, v));
+
+    const sr = this.q('statement').getBoundingClientRect(), words = root.querySelectorAll('[data-w]');
+    const sp = reduced ? 1 : clamp((vh * 0.82 - sr.top) / (sr.height + vh * 0.15));
+    words.forEach((w, i) => { w.style.color = i < Math.ceil(sp * words.length) ? (w.getAttribute('data-w') === 'forest' ? '#243D32' : '#292923') : '#DCD4C5'; });
+
+    const rv = root.querySelector('[data-reveal]');
+    if (rv) { const rr = rv.getBoundingClientRect(), e = reduced ? 1 : clamp((vh - rr.top) / (rr.height * 0.9)), ee = 1 - Math.pow(1 - e, 3);
+      rv.style.clipPath = 'inset(' + ((1 - ee) * 38).toFixed(2) + '% ' + ((1 - ee) * 12).toFixed(2) + '% 0% ' + ((1 - ee) * 12).toFixed(2) + '% round 14px)';
+      const ri = root.querySelector('[data-rimg]'); if (ri) ri.style.transform = 'scale(' + (1.18 - ee * 0.18).toFixed(4) + ')';
+      root.querySelectorAll('[data-rl]').forEach((l, i) => { const t = clamp(e * 1.5 - 0.25 - i * 0.15); l.style.transform = 'translateY(' + ((1 - (1 - Math.pow(1 - t, 3))) * 105).toFixed(1) + '%)'; }); }
+    const chips = root.querySelectorAll('[data-chip]');
+    if (chips.length) { const cr = this.q('statement').getBoundingClientRect(), cp = reduced ? 1 : clamp((vh * 0.9 - cr.top) / (cr.height * 0.9)); chips.forEach((c, i) => { const e = clamp(cp * 1.6 - i * 0.2); c.style.width = (e * 1.9).toFixed(3) + 'em'; c.style.marginLeft = c.style.marginRight = (e * 0.06).toFixed(3) + 'em'; }); }
+    const items = root.querySelectorAll('[data-ei]');
+    if (items.length) {
+      const br = this.q('bento').getBoundingClientRect(), n = items.length;
+      const t = clamp(-br.top / Math.max(1, br.height - vh));
+      const raw = Math.min(n - 1, t / 0.8 * (n - 1)), k = Math.floor(raw), fr = raw - k;
+      const ez = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      const f = k + ez(clamp((fr - 0.2) / 0.6)), ex = ez(clamp((t - 0.84) / 0.14));
+      const w = W * 0.42, hh = Math.min(w * 0.68, vh * 0.62), sn = 0.62, hn = hh * sn, pitch = vh / 2 - hn * 0.42 + hn / 2;
+      items.forEach((it, i) => {
+        const d = i - f, ad = Math.min(1, Math.abs(d)), sc = 1 - (1 - sn) * ad;
+        let iw = w * sc, ih = hh * sc, y = Math.sign(d) * Math.min(Math.abs(d), 1.6) * pitch, rad = 14, op = 1;
+        if (i === n - 1) { iw += (W - iw) * ex; ih += (vh - ih) * ex; rad = 14 * (1 - ex); y *= 1 - ex; } else op = 1 - ex;
+        it.style.width = iw.toFixed(1) + 'px'; it.style.height = ih.toFixed(1) + 'px'; it.style.borderRadius = rad + 'px';
+        it.style.left = (i === n - 1 ? 62 - 12 * ex : 62) + '%'; it.style.transform = 'translate(-50%,calc(-50% + ' + y.toFixed(1) + 'px))'; it.style.opacity = op;
+        it.style.filter = 'grayscale(' + ad.toFixed(3) + ')';
+        const sc2 = it.querySelector('[data-escrim]'); if (sc2) sc2.style.opacity = i === n - 1 ? (ex * 0.72).toFixed(3) : 0;
+      });
+      const ink = ex > 0.5 ? '#F7F4EC' : '#292923';
+      root.querySelectorAll('[data-et]').forEach((el, i) => {
+        const d = i - f; el.style.opacity = Math.max(0, 1 - Math.abs(d) * 1.8).toFixed(3);
+        el.style.transform = 'translateY(calc(-50% + ' + (d * 60).toFixed(1) + 'px))'; el.style.color = ink;
+      });
+      const a = Math.round(f);
+      root.querySelectorAll('[data-ex]').forEach((el, i) => { el.style.opacity = i === a ? 1 : 0.4; el.style.color = ink; });
+      root.querySelectorAll('[data-ecol],[data-ecap]').forEach(el => { el.style.color = ink; });
+      if (a !== this.state.active) this.setState({ active: a });
+    }
+
+    const r4 = this.q('stays').getBoundingClientRect();
+    if (!reduced) this.q('foliage').style.transform = 'translateY(' + (-(vh - r4.top) * 0.3 * 0.25).toFixed(1) + 'px)';
+    const cards = root.querySelectorAll('[data-card="1"]');
+    if (cards.length) {
+      const t = clamp(-r4.top / Math.max(1, r4.height - vh)), t2 = t * (cards.length - 1);
+      const s = Math.max(0.78, Math.min(1.2, (vh - 40) / 660)), gap = W * 0.38, now = performance.now();
+      if (!this.swingStart && r4.top < vh * 0.7) this.swingStart = now;
+      let swinging = false;
+      cards.forEach((c, i) => {
+        const d = i - t2, k = 1 - 0.06 * Math.min(1, Math.abs(d));
+        let rot = 3;
+        if (this.swingStart) { const e = now - this.swingStart - i * 80; rot = e < 0 ? 3 : e > 2800 ? 0 : 3 * Math.exp(-e / 620) * Math.cos(e / 170); if (e < 2800) swinging = true; }
+        c.style.transform = 'translateX(calc(-50% + ' + (d * gap).toFixed(1) + 'px)) rotate(' + rot.toFixed(3) + 'deg) scale(' + (s * k).toFixed(4) + ')';
+        c.style.zIndex = Math.abs(d) < 0.5 ? 2 : 1;
+      });
+      root.querySelectorAll('[data-stop]').forEach((e, i) => { e.style.opacity = Math.round(t2) === i ? 1 : 0.45; });
+      if (swinging) this.queue();
+    }
+  }
+  go(name, e) {
+    if (e) e.preventDefault();
+    const el = name === 'top' ? this.rootRef.current : this.q(name); if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - (name === 'form' ? 140 : 0), behavior: this.state.reduced ? 'auto' : 'smooth' });
+  }
+  submit(e) {
+    e.preventDefault();
+    const f = this.form, err = {};
+    if (!(f.name || '').trim()) err.name = 'Please add your name.';
+    const c = (f.contact || '').trim();
+    if (!(/^\S+@\S+\.\S+$/.test(c) || c.replace(/\D/g, '').length >= 8)) err.contact = 'Enter a complete email address or phone number.';
+    this.setState({ err, sent: !Object.keys(err).length });
+  }
+  renderVals() {
+    const { mobile: m, reduced, active, hover, room, mode, sent, err } = this.state;
+    const forced = this.props.view === 'mobile', pinned = !m && !reduced;
+    const L = {
+      rootW: forced ? '390px' : '100%', navCols: m ? 'auto auto' : '1fr auto 1fr',
+      wordSize: m ? '28cqw' : '25.5cqw', subSize: m ? '12cqw' : '7cqw', l2ml: m ? '30cqw' : '58cqw', l2mt: m ? '-2cqw' : '-5.6cqw',
+      imgMt: m ? '-5cqw' : '-6.4cqw', imgMl: m ? '0' : '24cqw', imgH: m ? '112cqw' : '40cqw',
+      heroFoot: m ? 'minmax(0,1fr)' : 'minmax(0,1.7fr) minmax(0,1fr)', heroH: m ? '118cqw' : 'clamp(440px,40cqw,600px)', h1Size: m ? '17cqw' : 'clamp(80px,11.4cqw,172px)', heroGrid: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,2.6fr) minmax(0,1fr)', h1indent: m ? '0.6em' : '1.4em',
+      labelCols: m ? 'minmax(0,1fr)' : '18cqw minmax(0,1fr)',
+      bentoCols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)', bentoImgH: m ? '118cqw' : '0',
+      cols3: m ? 'minmax(0,1fr)' : 'repeat(3,minmax(0,1fr))', s5cols: m ? 'minmax(0,1fr)' : 'minmax(0,1.7fr) minmax(0,1fr)',
+      ownerCols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)', formOrder: m ? 2 : 0,
+      footWord: m ? '28cqw' : '26cqw', hostCols: m ? 'minmax(0,1fr)' : 'minmax(0,.85fr) minmax(0,1.15fr)', tourH: m ? '130cqw' : 'clamp(460px,46cqw,680px)', areaCols: m ? 'minmax(0,1fr)' : '80px minmax(0,1fr) 220px', howImgH: m ? '90cqw' : '0', sheetCols: m ? 'minmax(0,1fr)' : 'minmax(320px,30%) minmax(0,1fr)', galH: m ? '150vw' : 'calc(100vh - 128px)', asideH: m ? '0' : 'calc(100vh - 128px)', expH: pinned ? '520vh' : 'auto', cols2: m ? 'minmax(0,1fr)' : 'repeat(2,minmax(0,1fr))', cardW: m ? '84cqw' : 'clamp(540px,42cqw,620px)', cardCols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.08fr)', cardImgH: m ? '62cqw' : '300px',
+      s4H: pinned ? '280vh' : 'auto', s4Pos: pinned ? 'sticky' : 'relative', s4InnerH: pinned ? '100vh' : 'auto',
+      trackStyle: pinned ? 'position:absolute;inset:0;z-index:2' : 'position:relative;z-index:2;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px clamp(20px,3cqw,44px) 20px',
+      cardWrap: pinned ? 'position:absolute;left:50%;top:150px;transform-origin:50% -140px;transform:translateX(-50%);will-change:transform' : 'flex:none;scroll-snap-align:center',
+      cardFlag: pinned ? '1' : '0',
+      noteStyle: pinned ? 'absolute' : 'relative', notePad: pinned ? '0' : '0 0 44px',
+    };
+    const mk = (indent, tone, text, it) => ({ indent, words: text.split(' ').map(t => ({ t, tone, style: it ? 'italic' : 'normal' })) });
+    const lines = [mk('0', 'charcoal', 'More than a stay.'), mk('10cqw', 'forest', 'A space to feel at home.', true), mk('0', 'charcoal', 'Thoughtfully furnished'), mk('6cqw', 'charcoal', 'for slow mornings, work trips'), mk('14cqw', 'forest', 'and everything in between.', true)];
+    const act = hover >= 0 ? hover : active;
+    const rows = [['Furnished interiors', 'Move-in ready spaces, set up like a home'], ['Wi-Fi and air conditioning', 'Listed on Our Cozy Nest and Simple Like Home'], ['Kitchen facilities', 'Utensils, refrigerator and water purifier on listed stays'], ['Self check-in', 'On select stays']]
+      .map(([title, cap], i) => ({ n: '0' + (i + 1), title, cap, slot: 'exp-' + (i + 1), photo: 'https://images.pexels.com/photos/' + ['38721154', '31728399', '4906250', '31989061'][i] + '/pexels-photo-' + ['38721154', '31728399', '4906250', '31989061'][i] + '.jpeg?auto=compress&cs=tinysrgb&w=1800', ph: 'Photo — ' + title.toLowerCase(),
+        jump: () => { const el = this.q('bento'); if (!el) return; const top = el.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: top + (i / 3) * 0.8 * (el.offsetHeight - window.innerHeight) + 2, behavior: reduced ? 'auto' : 'smooth' }); }, bg: i === act ? '#243D32' : '#FFFFFF', ink: i === act ? '#F7F4EC' : '#292923', arrow: i === act ? 'translate(4px,-4px)' : 'none', enter: () => this.setState({ hover: i }) }));
+    const stays = [
+      { slot: 'stay-cozy-nest', photo: 'https://images.pexels.com/photos/9817026/pexels-photo-9817026.jpeg?auto=compress&cs=tinysrgb&w=900', ph: 'Photo — Our Cozy Nest', bg: '#243D32', ink: '#F7F4EC', title: 'Our Cozy Nest', place: 'Hyderabad', badge: '1 bed · 2 guests', slotValue: '1 bed · 1 bath', slotLabel: 'Couple-friendly stay' },
+      { slot: 'stay-scenic-balcony', photo: 'https://images.pexels.com/photos/5028853/pexels-photo-5028853.jpeg?auto=compress&cs=tinysrgb&w=900', ph: 'Photo — Homey 1BHK with Scenic Balcony', bg: '#B49A6C', ink: '#292923', title: 'Homey 1BHK with Scenic Balcony', place: 'Hyderabad', badge: '1 BHK · Balcony', slotValue: '1 BHK', slotLabel: 'Configuration' },
+      { slot: 'stay-simple-like-home', photo: 'https://images.pexels.com/photos/7166933/pexels-photo-7166933.jpeg?auto=compress&cs=tinysrgb&w=900', ph: 'Photo — Simple Like Home 1BHK', bg: '#DCD4C5', ink: '#292923', title: 'Simple Like Home 1BHK', place: 'Serilingampally, Hyderabad', badge: '1 BHK · Kitchen', slotValue: '1 BHK apartment', slotLabel: 'Configuration' },
+    ];
+    const roomsGeo = [['kitchen', 'Kitchen', 0, 0, 34, 62], ['bath', 'Bath', 34, 0, 24, 40], ['bedroom', 'Bedroom', 58, 0, 42, 62], ['living', 'Living', 0, 62, 58, 38], ['balcony', 'Balcony', 58, 62, 42, 38]];
+    const plan = roomsGeo.map(([k, label, x, y, w, h]) => ({ label, x: x + '%', y: y + '%', w: w + '%', h: h + '%', fill: k === room ? '#243D32' : (k === 'balcony' ? '#DCD4C5' : '#F7F4EC'), ink: k === room ? '#F7F4EC' : '#292923' }));
+    const hotspots = [['living', 'Living', '29%', '81%'], ['bedroom', 'Bedroom', '79%', '31%'], ['balcony', 'Balcony', '79%', '81%']].map(([k, label, x, y]) => ({ label, x, y, active: room === k, idle: room !== k, open: () => this.setState({ room: k }) }));
+    const rooms = {
+      living: { idx: 'Room 01 / 04', title: 'Living room', body: 'Amenities listed on Divora stays include Wi-Fi, a TV and air conditioning. Exact features vary by stay.', list: ['Wi-Fi', 'TV', 'Air conditioning'] },
+      bedroom: { idx: 'Room 02 / 04', title: 'Bedroom', body: 'Our Cozy Nest is a couple-friendly stay with one bedroom and one bath, for two guests.', list: ['1 bed', '1 bath', '2 guests'] },
+      kitchen: { idx: 'Room 03 / 04', title: 'Kitchen', body: 'Kitchens on listed stays come with utensils, a refrigerator and a water purifier.', list: ['Utensils', 'Refrigerator', 'Water purifier'] },
+      balcony: { idx: 'Room 04 / 04', title: 'Balcony', body: 'Homey 1BHK with Scenic Balcony is the Divora listing with a balcony.', list: ['Scenic balcony', '1 BHK'] },
+    };
+    const PXt = id => 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=2000';
+    const tour = [['living', 'Living', '38721154'], ['bedroom', 'Bedroom', '31728399'], ['kitchen', 'Kitchen', '4906250'], ['balcony', 'Balcony', '37837895']].map(([k2, label, id], i) => ({ label, n: '0' + (i + 1), slot: 'tour-' + k2, photo: PXt(id), ph: 'Photo — ' + label.toLowerCase(), on: room === k2, op: room === k2 ? 1 : 0, sc: room === k2 ? 1 : 1.06, pe: room === k2 ? 'auto' : 'none', ink: room === k2 ? '#F7F4EC' : '#B49A6C', fs: room === k2 ? 'italic 400' : 'normal 400', open: () => this.setState({ room: k2 }) }));
+    const reviewCols = [0, 1, 2].map(i => ({ pl: m || i === 0 ? '0' : '28px', pr: '28px', bl: !m && i > 0 ? '1px solid #B49A6C' : '0', w: ['62%', '80%', '44%'][i] }));
+    const PX = id => 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=1400';
+    const details = [
+      { badge: '1 bed · 2 guests', title: 'Our Cozy Nest', place: 'Hyderabad', rows: [['Stay type', 'Couple-friendly'], ['Bedrooms', '1'], ['Bathrooms', '1'], ['Guests', '2']], amen: ['Wi-Fi', 'Air conditioning', 'TV', 'Self check-in'], photos: ['9817026', '31728399', '38721154', '7851911', '4906250', '5824526'] },
+      { badge: '1 BHK · Balcony', title: 'Homey 1BHK with Scenic Balcony', place: 'Hyderabad', rows: [['Configuration', '1 BHK'], ['Outdoor', 'Scenic balcony'], ['Kitchen', 'Utensils provided']], amen: ['Kitchen utensils', 'Refrigerator', 'Washing machine', 'Water purifier', '55-inch TV'], photos: ['5028853', '37837895', '7166933', '39338461', '31728399', '9402626'] },
+      { badge: '1 BHK · Kitchen', title: 'Simple Like Home 1BHK Apartment', place: 'Serilingampally, Hyderabad', rows: [['Configuration', '1 BHK apartment'], ['Area', 'Serilingampally'], ['Kitchen', 'Yes']], amen: ['Kitchen', 'Wi-Fi', 'TV', 'Air conditioning', 'Refrigerator'], photos: ['7166933', '7851911', '4906250', '31728399', '38721154', '35505446'] },
+    ];
+    const od = this.state.open != null ? details[this.state.open] : null, ph = this.state.photo;
+    const sheet = od ? { idx: '0' + (this.state.open + 1) + ' / 03', badge: od.badge, title: od.title, place: od.place, rows: od.rows.map(([k, v]) => ({ k, v })), amen: od.amen, photos: od.photos.map((id, i) => ({ url: PX(id), label: od.title + ' — sample photo ' + (i + 1), open: () => this.setState({ photo: i }) })) } : { idx: '', badge: '', title: '', place: '', rows: [], amen: [], photos: [] };
+    const on = '1px solid #B49A6C', off = '1px solid transparent';
+    return {
+      loopStays: [0, 1, 2].flatMap(() => stays.map((s, k) => Object.assign({}, s, { aria: 'Open ' + s.title, num: '(0' + (k + 1) + ')', tags: [['Wi-Fi', 'AC', 'Self check-in'], ['Kitchen', 'Washing machine', '55" TV'], ['Kitchen', 'Wi-Fi', 'AC']][k], open: e => this.openStay(k, e.currentTarget), view: e => e.preventDefault() }))),
+      hasOpen: this.state.open != null, sheet, hasPhoto: ph >= 0 && !!od, bigUrl: od && ph >= 0 ? PX(od.photos[ph]) : '', bigLabel: od && ph >= 0 ? od.title + ' — sample photo ' + (ph + 1) : '', photoN: '0' + (ph + 1) + ' / 06',
+      closeStay: () => this.closeStay(), closePhoto: () => this.closePhoto(), prevPhoto: () => this.stepPhoto(-1), nextPhoto: () => this.stepPhoto(1),
+      enquireStay: e => { e.preventDefault(); document.documentElement.style.overflow = ''; this.setState({ open: null, photo: -1, mode: 'guest', sent: false }, () => this.go('form')); }, unpinned: !pinned, activeN: '0' + (active + 1), capActive: rows[active] ? rows[active].cap : '',
+      togglePlay: () => this.setState(s => ({ paused: !s.paused })), playLabel: this.state.paused ? 'Play card carousel' : 'Pause card carousel', playIcon: this.state.paused ? '▶' : '❚❚',
+      hoverOn: () => { this.hold.hover = true; }, hoverOff: () => { this.hold.hover = false; },
+      touchOn: () => { clearTimeout(this.touchT); this.hold.touch = true; }, touchOff: () => { this.touchT = setTimeout(() => { this.hold.touch = false; }, 2500); },
+      tour, rootRef: this.rootRef, L, desk: !m, pinned, lines, rows, stays, plan, hotspots, room: rooms[room], reviewCols,
+      stayNote: pinned ? 'Scroll to travel the cards. Availability confirmed on enquiry.' : 'Swipe to browse · Availability confirmed on enquiry',
+      rowLeave: () => this.setState({ hover: -1 }),
+      goTop: e => this.go('top', e), heroReduced: !!this.props.reducedMotion,
+      heroNav: k => { if (k === 'enquire') { this.setState({ mode: 'guest', sent: false }); this.go('form'); } else this.go({ stays: 'stays', experience: 'bento', owners: 'owners', contact: 'footer' }[k] || 'stays'); }, goStays: e => this.go('stays', e), goExperience: e => this.go('bento', e), goOwners: e => this.go('owners', e), goContact: e => this.go('footer', e),
+      goEnquire: e => { this.setState({ mode: 'guest', sent: false }); this.go('form', e); },
+      setOwner: e => { e.preventDefault(); this.setState({ mode: 'owner', sent: false }); this.go('form'); }, setGuest: e => { e.preventDefault(); this.setState({ mode: 'guest', sent: false }); },
+      isOwner: mode === 'owner', isGuest: mode === 'guest', tab: { owner: mode === 'owner' ? on : off, guest: mode === 'guest' ? on : off },
+      onField: e => { this.form[e.target.name] = e.target.value; }, submit: e => this.submit(e), err: { name: err.name || '', contact: err.contact || '' },
+      formNote: sent ? 'Thank you. Demo only: nothing has been sent yet.' : (mode === 'guest' ? 'This is an enquiry, not a confirmed booking.' : 'This is an enquiry. Partnership terms are subject to founder confirmation.'),
+    };
+  }
+}
+</script>
+</body>
+</html>

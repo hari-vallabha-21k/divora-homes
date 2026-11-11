@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="_ds/design-system-bcffba03-aef4-454b-9230-118735ba2ae4/_ds_bundle.js"></script>
+</helmet>
+<sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}">
+<div ref="{{ rootRef }}" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif">
+<div data-hl="1" style="position:absolute;left:48px;top:118px;font:300 136px/.86 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:-.005em;white-space:nowrap;transform:translateX({{ d.l1x }});opacity:{{ d.txtOp }};transition:transform 1.2s cubic-bezier(.22,1,.36,1)"><sc-for list="{{ w1 }}" as="w" hint-placeholder-count="3"><span style="display:inline-block;overflow:hidden;vertical-align:top;margin-right:.22em;padding-top:.06em"><span data-word="1" style="display:inline-block">{{ w }}</span></span></sc-for></div>
+<div data-hl="1" style="position:absolute;right:48px;top:{{ d.l2top }};font:300 136px/.86 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:-.005em;white-space:nowrap;transform:translateX({{ d.l2x }});opacity:{{ d.txtOp }};transition:transform 1.2s cubic-bezier(.22,1,.36,1)"><sc-for list="{{ w2 }}" as="w" hint-placeholder-count="3"><span style="display:inline-block;overflow:hidden;vertical-align:top;margin-left:.22em;padding-top:.06em"><span data-word="1" style="display:inline-block">{{ w }}</span></span></sc-for></div>
+<div style="position:absolute;left:{{ d.imgL }};top:{{ d.imgTop }};width:{{ d.imgW }};height:{{ d.imgH }};perspective:1600px;z-index:2">
+<div data-model="1" style="position:absolute;inset:0;transform-origin:{{ d.origin }};transform:{{ d.imgTf }};opacity:{{ d.imgOp }};transition:transform 1.2s cubic-bezier(.22,1,.36,1),opacity 1.2s cubic-bezier(.22,1,.36,1)">
+<sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><img src="{{ d.src }}" alt="Illustrative furnished apartment cutaway" style="display:block;width:100%;height:100%;object-fit:contain"></sc-if>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;top:0;height:96px;z-index:4;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 48px">
+<div data-logo="1" style="font:400 24px/1 'Cormorant Garamond',serif;letter-spacing:.34em;text-transform:uppercase">Divora</div>
+<nav style="display:flex;gap:40px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase"><a href="#" style="color:#292923;text-decoration:none">Stays</a><a href="#" style="color:#292923;text-decoration:none">Experience</a><a href="#" style="color:#292923;text-decoration:none">Owners</a><a href="#" style="color:#292923;text-decoration:none">Contact</a></nav>
+<div style="display:flex;justify-content:flex-end"><a href="#" style="width:72px;height:72px;border-radius:50%;background:#243D32;color:#F7F4EC;text-decoration:none;display:flex;align-items:center;justify-content:center;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#292923">Enquire</a></div>
+</div>
+<div style="position:absolute;left:48px;right:48px;top:96px;height:1px;background:#B49A6C;z-index:4"></div>
+<div style="position:absolute;right:48px;top:136px;z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:{{ d.uiOp }};transition:opacity .9s cubic-bezier(.22,1,.36,1)">
+<span style="white-space:nowrap">Hyderabad</span><span style="width:28px;height:1px;background:#B49A6C;display:block"></span><span style="white-space:nowrap">Kondapur – HITEC City</span><span style="width:28px;height:1px;background:#B49A6C;display:block"></span><span style="white-space:nowrap">Founded by Divya</span>
+</div>
+<div style="position:absolute;left:48px;top:470px;width:236px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:20px;opacity:{{ d.uiOp }};transition:opacity .9s cubic-bezier(.22,1,.36,1)">
+<span style="border:1px solid #292923;border-radius:999px;padding:8px 13px;font:500 9px/1.3 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">Furnished homestays · Hyderabad</span>
+<p style="margin:0;font:400 14px/1.6 Inter,sans-serif;text-wrap:pretty">Thoughtfully furnished spaces for slow mornings, work trips and everything in between.</p>
+<a href="#" style="display:flex;align-items:center;gap:10px;background:#292923;color:#F7F4EC;text-decoration:none;font:500 12px/1 Inter,sans-serif;padding:15px 20px;border-radius:14px;white-space:nowrap;transition:background .6s cubic-bezier(.22,1,.36,1)" style-hover="background:#243D32">Explore Our Stays <span>↗</span></a>
+</div>
+<div style="position:absolute;left:{{ d.tagX }};top:{{ d.tagY }};z-index:4;display:flex;align-items:center;gap:8px;font:500 9px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;opacity:{{ d.uiOp }};transition:opacity .9s"><span style="width:6px;height:6px;border-radius:50%;background:#243D32;display:block"></span>Illustrative concept</div>
+<div style="position:absolute;left:48px;bottom:40px;z-index:4;display:flex;align-items:center;gap:14px;font:500 10px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:{{ d.uiOp }}"><span style="white-space:nowrap">Scroll to Discover</span><span style="width:72px;height:1px;background:#B49A6C;display:block"></span></div>
+<div style="position:absolute;right:48px;bottom:40px;z-index:4;font:400 10px/1.4 Inter,sans-serif;white-space:nowrap;opacity:{{ d.uiOp }}">“apartment floor plan” by SrMonteiro, CC BY 4.0</div>
+<sc-if value="{{ isC }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:0;right:0;bottom:0;height:360px;z-index:5;background:#F7F4EC;padding:56px 48px 0;box-sizing:border-box;border-top:1px solid #B49A6C">
+<div style="font:300 76px/.98 'Cormorant Garamond',serif;text-transform:uppercase">More than a stay.<br><span style="padding-left:2.4em;color:#243D32">A space to feel at home.</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ isReduced }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:50%;bottom:32px;transform:translateX(-50%);z-index:6;background:#292923;color:#F7F4EC;border-radius:999px;padding:10px 16px;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">Reduced motion · static image · no reveals or parallax</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<div ref="{{ rootRef }}" style="position:relative;width:390px;height:844px;overflow:hidden;background:#F7F4EC;color:#292923;font-family:Inter,sans-serif">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;position:relative;z-index:4">
+<div style="font:400 20px/1 'Cormorant Garamond',serif;letter-spacing:.32em;text-transform:uppercase">Divora</div>
+<a href="#" style="width:56px;height:56px;border-radius:50%;background:#243D32;color:#F7F4EC;text-decoration:none;display:flex;align-items:center;justify-content:center;font:500 9px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">Enquire</a>
+</div>
+<div style="margin:0 20px;height:1px;background:#B49A6C"></div>
+<div style="padding:16px 20px 0;display:flex;justify-content:space-between;align-items:center;gap:8px">
+<span style="border:1px solid #292923;border-radius:999px;padding:7px 11px;font:500 8.5px/1.3 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">Furnished homestays · Hyderabad</span>
+<span style="font:500 8.5px/1.4 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:right">Founded<br>by Divya</span>
+</div>
+<div style="position:relative;margin-top:18px">
+<div style="padding:0 20px;font:300 58px/.86 'Cormorant Garamond',serif;text-transform:uppercase;white-space:nowrap">A stay that</div>
+<div style="position:relative;z-index:2;margin:-9px 20px 0;aspect-ratio:4/5;border-radius:14px;overflow:hidden">
+<sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><img src="{{ mSrc }}" alt="Illustrative living area of a furnished apartment" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
+<span style="position:absolute;left:12px;top:12px;background:#F7F4EC;border-radius:999px;padding:7px 10px;font:500 8.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:6px;align-items:center"><i style="width:5px;height:5px;border-radius:50%;background:#243D32;display:block"></i>Illustrative concept</span>
+</div>
+<div style="padding:0 20px;margin-top:-9px;text-align:right;font:300 41px/.86 'Cormorant Garamond',serif;text-transform:uppercase;white-space:nowrap">Feels like yours.</div>
+</div>
+<div style="padding:20px 20px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end">
+<p style="margin:0;font:400 13px/1.55 Inter,sans-serif">Thoughtfully furnished spaces for slow mornings, work trips and everything in between.</p>
+<a href="#" style="display:flex;align-items:center;gap:8px;background:#292923;color:#F7F4EC;text-decoration:none;font:500 12px/1 Inter,sans-serif;padding:15px 16px;border-radius:14px;white-space:nowrap">Explore Our Stays ↗</a>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 8.5px/1.3 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase">
+<span style="display:flex;gap:10px;align-items:center;white-space:nowrap">Scroll<i style="width:36px;height:1px;background:#B49A6C;display:block"></i></span>
+<span style="text-transform:none;letter-spacing:0;font-size:9px;text-align:right">“apartment floor plan” by SrMonteiro, CC BY 4.0</span>
+</div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],&quot;default&quot;:&quot;a&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;live&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;reduced&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { r: null };
+  rootRef = React.createRef();
+  componentDidMount() {
+    import(new URL('divora-glb-hero.js', document.baseURI).href).then(m => m.renderHeroViews()).then(r => { this.setState({ r }, () => this.intro()); }).catch(e => console.warn('hero render failed', e));
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+  intro() {
+    if (!this.props.live || this.props.reduced) return;
+    const root = this.rootRef.current; if (!root) return;
+    const ez = 'cubic-bezier(.22,1,.36,1)';
+    const logo = root.querySelector('[data-logo]'), words = root.querySelectorAll('[data-word]'), model = root.querySelector('[data-model]');
+    const set = (el, t, o, tr) => { el.style.transition = tr || 'none'; if (t != null) el.style.transform = t; if (o != null) el.style.opacity = o; };
+    set(logo, null, 0); words.forEach(w => set(w, 'translateY(105%)')); set(model, 'translateY(18px) scale(.94)', 0);
+    void root.offsetWidth; setTimeout(() => {
+      set(logo, null, 1, 'opacity .9s ' + ez);
+      words.forEach((w, i) => set(w, 'none', null, 'transform 1s ' + ez + ' ' + (0.35 + i * 0.08) + 's'));
+      set(model, 'none', 1, 'transform 1.2s ' + ez + ' ' + (0.35 + words.length * 0.08) + 's, opacity 1.2s ' + ez + ' ' + (0.35 + words.length * 0.08) + 's');
+      setTimeout(() => { model.style.transition = ''; this.idle(); }, 2600);
+    }, 60);
+  }
+  idle() {
+    const root = this.rootRef.current, model = root && root.querySelector('[data-model]'); if (!model) return;
+    this.px = 0; this.py = 0; this.tx = 0; this.ty = 0;
+    const t0 = performance.now();
+    const loop = now => {
+      this.raf = requestAnimationFrame(loop);
+      this.px += (this.tx - this.px) * 0.06; this.py += (this.ty - this.py) * 0.06;
+      const t = (now - t0) / 1000, dy = Math.sin(t * 0.6) * 3;
+      model.style.transform = 'translateY(' + dy.toFixed(2) + 'px) rotateX(' + (-this.py * 1.5).toFixed(3) + 'deg) rotateY(' + (this.px * 1.5).toFixed(3) + 'deg)';
+    };
+    this.raf = requestAnimationFrame(loop);
+  }
+  renderVals() {
+    const p = this.props, r = this.state.r, st = p.state ?? 'a', mobile = (p.variant ?? 'desktop') === 'mobile';
+    const hero = r && r.hero, plan = r && r.plan;
+    const useImg = st === 'b' ? plan : hero;
+    const iw = st === 'b' ? 820 : 1008, ih = useImg ? Math.round(iw * useImg.h / useImg.w) : 514;
+    const midY = st === 'b' ? 470 : 452, top = Math.round(midY - ih / 2);
+    const d = {
+      src: useImg ? useImg.url : '', imgL: Math.round((1440 - iw) / 2) + 'px', imgW: iw + 'px', imgH: ih + 'px', imgTop: top + 'px',
+      l1x: st === 'b' ? '-86px' : st === 'c' ? '-140px' : '0px', l2x: st === 'b' ? '86px' : st === 'c' ? '140px' : '0px',
+      txtOp: st === 'c' ? 0.25 : 1, uiOp: st === 'c' ? 0 : 1,
+      imgTf: st === 'c' ? 'scale(1.5)' : 'none', imgOp: st === 'c' ? 0.35 : 1, origin: '40% 46%',
+      tagX: '1060px', tagY: (top + Math.round(ih * 0.22)) + 'px', l2top: (top + ih - 112) + 'px',
+    };
+    return {
+      rootRef: this.rootRef, isDesk: !mobile, isMobile: mobile, isC: st === 'c', isReduced: !!p.reduced,
+      ready: !!r, d, mSrc: r && r.mobile ? r.mobile.url : '',
+      w1: ['A', 'Stay', 'That'], w2: ['Feels', 'Like', 'Yours.'],
+      onMove: e => { if (!p.live || p.reduced) return; const b = e.currentTarget.getBoundingClientRect(); this.tx = ((e.clientX - b.left) / b.width - 0.5) * 2; this.ty = ((e.clientY - b.top) / b.height - 0.5) * 2; },
+      onLeave: () => { this.tx = 0; this.ty = 0; },
+    };
+  }
+}
+</script>
+</body>
+</html>
