@@ -288,7 +288,7 @@ class Component extends DCLogic {
   form = {};
   swingStart = 0;
   componentDidMount() {
-    this.mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.mq = { matches: false }; /* demo: always show animations, ignore the OS reduce-motion setting */
     this.onResize = () => { this.measure(); this.queue(); };
     this.queue = () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.update(); }); };
     window.addEventListener('resize', this.onResize);
