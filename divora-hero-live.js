@@ -6,7 +6,7 @@ export const HERO = {
   DROP: { dist: 7.5 },                          // 35–65%: descend straight down into the room (no walls in the way)
   POV: { elev: 15, azim: 155, dist: 3.4, fov: 56 }, // 65–92%: swing down to an eye-level view inside the room
   ROOM: [-3.6, 0.85, 0.7],                      // model-local point (after centring): the hall / living room
-  FIT_WIDTH: 0.66, FIT_WIDTH_MOBILE: 0.96, MAX_HEIGHT: 0.52,
+  FIT_WIDTH: 0.66, FIT_WIDTH_MOBILE: 0.88, MAX_HEIGHT: 0.52,
   TILT_MAX: 1.5, DRIFT: 0.06,
 };
 const GLB = 'uploads/apartment_floor_plan-42f4f1f0.glb';
